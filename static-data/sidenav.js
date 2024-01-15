@@ -45,6 +45,26 @@ const sidenav = [
     to: "/dashboard",
   },
   {
+    id: 12,
+    label: "Product",
+    icon: <PackageSearch className="w-5 h-5" />,
+    sub: true,
+    childs: [
+      {
+        id: 1200,
+        label: "Add Product",
+        icon: <CopyPlus className="w-5 h-5" />,
+        to: "/products/create",
+      },
+      {
+        id: 1201,
+        label: "Manage Products",
+        icon: <FileCog className="w-5 h-5" />,
+        to: "/products",
+      },
+    ],
+  },
+  {
     id: 2,
     label: "User Roles",
     icon: <Contact className="w-5 h-5" />,
@@ -124,7 +144,7 @@ const sidenav = [
       },
     ],
   },
-  
+
   {
     id: 6,
     label: "Service",
@@ -226,26 +246,7 @@ const sidenav = [
       },
     ],
   },
-  {
-    id: 12,
-    label: "Product",
-    icon: <PackageSearch className="w-5 h-5" />,
-    sub: true,
-    childs: [
-      {
-        id: 1200,
-        label: "Add Product",
-        icon: <CopyPlus className="w-5 h-5" />,
-        to: "/products/create",
-      },
-      {
-        id: 1201,
-        label: "Manage Products",
-        icon: <FileCog className="w-5 h-5" />,
-        to: "/products",
-      },
-    ],
-  },
+
   {
     id: 13,
     label: "Purchases",
@@ -444,7 +445,7 @@ const sidenav = [
       },
     ],
   },
- {
+  {
     id: 15,
     label: "Settings",
     icon: <Settings className="w-5 h-5" />,
