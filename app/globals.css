@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+::-webkit-scrollbar {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track-piece {
+  background: #ffffff;
+}
+::-webkit-scrollbar-button {
+  background: #c9370a;
+  height: 10px;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #1b7460;
+  height: 20px;
+  border-radius: 10px;
+}
+
+​ body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.nav_drop_down {
+  @apply block absolute z-10 top-[45px]   right-[20px] w-15.0 h-auto border rounded-md bg-wh border-yellow-600;
+}
+.bg_sl_1 {
+  @apply bg-slate-100;
+}
+
+.icon_sm {
+  @apply w-5 h-5 text-slate-500;
+}
+
+.enhanced_title {
+  @apply text-1.5/2 font-bold text-teal-700;
+}
