@@ -57,7 +57,7 @@ const CustomSelect = ({ options, value, onChange, bg, ph, icon, label }) => {
               key={index}
               className={`${
                 value === option ? "bg-primary" : "bg-white text-black"
-              } capitalize py-2 px-4 cursor-pointer   hover:bg-blue-800 hover:text-white`}
+              } capitalize py-1 px-4 cursor-pointer   hover:bg-blue-800 hover:text-white`}
               onClick={() => {
                 onChange(option);
                 setIsOpen(false);

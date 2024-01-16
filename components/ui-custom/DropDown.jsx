@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 
 const DropDown = ({ options, value, onChange, bg, ph, icon, label }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,12 +29,13 @@ const DropDown = ({ options, value, onChange, bg, ph, icon, label }) => {
   };
 
   return (
-    <div className="relative " ref={dropdownRef}>
+    <div className="relative min-w-[150px] shadow-sm shadow-slate-300 border" ref={dropdownRef}>
       <div
         className={`  px-1.0 font-inter text-0.9/1  capitalize  text-pr/600 flex justify-between items-center ${styles[bg]}`}
         onClick={toggleDropdown}
       >
-        <span>{value ? value : ph}</span>
+        <span>{value?.title ? value.title : ph}</span>
+        <ChevronDown className="w-3 h-3"/>
       </div>
 
       {isOpen ? (
@@ -44,13 +45,13 @@ const DropDown = ({ options, value, onChange, bg, ph, icon, label }) => {
               key={index}
               className={`${
                 value === option ? "bg-primary" : "bg-white text-black"
-              } capitalize py-2 px-4 cursor-pointer   hover:bg-blue-800 hover:text-white`}
+              } capitalize py-1 px-4 cursor-pointer   hover:bg-blue-800 hover:text-white`}
               onClick={() => {
                 onChange(option);
                 setIsOpen(false);
               }}
             >
-              {option}
+              {option.title}
             </li>
           ))}
         </ul>

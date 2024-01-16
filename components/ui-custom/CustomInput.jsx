@@ -5,6 +5,7 @@ export default function CustomInput({
   type,
   accept,
   required,
+  label,
   value,
   ph,
   afterChange,
@@ -19,7 +20,7 @@ export default function CustomInput({
   startButtonTxt
 }) {
   return (
-    <div className="flex rounded-md border border-slate-300 w-full h-full">
+    <div className="flex rounded-md border border-slate-300 w-full h-full font-sans text-base">
       {startIcon && (
         <span className="bg-slate-200 py-0.25 px-0.25 border-r rounded-r-sm border-slate-300">
           {startIcon}
@@ -31,12 +32,13 @@ export default function CustomInput({
           <span>{startButtonTxt}</span>
         </button>
       )}
+      {label && <p className="h-full py-0.25 px-1 bg-slate-200 border-r border-slate-300  ">{label}</p>}
       <input
         id={id}
         type={type}
         required={true}
         placeholder={ph}
-        className="flex-grow py-0.5 px-0.38 outline-blue-300 rounded-md h-full"
+        className="flex-grow py-0.25 px-0.38 outline-none rounded-md h-full"
         value={value}
         onChange={afterChange}
         accept={accept}
