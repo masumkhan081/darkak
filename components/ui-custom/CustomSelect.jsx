@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-const CustomSelect = ({ options, value, onChange, bg, ph, icon, label }) => {
+const CustomSelect = ({ options, value, onChange, bg, ph, icon, label,w }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const handleClickOutside = (e) => {
@@ -31,7 +31,7 @@ const CustomSelect = ({ options, value, onChange, bg, ph, icon, label }) => {
   return (
     <div className="relative h-full" ref={dropdownRef}>
       <div
-        className={`py-1 px-1.0 min-w-[80px] h-full border rounded-md capitalize cursor-pointer flex justify-between items-center ${styles[bg]}`}
+        className={`py-1 px-1.0 ${w} h-full border rounded-md capitalize cursor-pointer flex justify-between items-center ${styles[bg]}`}
         onClick={toggleDropdown}
       >
         {label && (

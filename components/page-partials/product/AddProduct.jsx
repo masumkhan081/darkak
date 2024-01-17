@@ -7,6 +7,7 @@ import DropDown from "@/components/ui-custom/DropDown";
 import EnhancedText from "@/components/ui-custom/EnhancedText";
 import productGroups from "@/static-data/product-groups";
 import warrenties from "@/static-data/warrenties";
+import { colorList, sizeList } from "@/static-data/product-variants";
 import {
   CheckCheck,
   ChevronsRight,
@@ -16,6 +17,8 @@ import {
   ImagePlus,
   Info,
   InfoIcon,
+  Plus,
+  X,
 } from "lucide-react";
 import React, { useState } from "react";
 import { categories, subCategories } from "@/static-data/product-categories";
@@ -50,19 +53,30 @@ export default function AddProduct({ actOn, useForEdit }) {
   const [ytVideoURL, setYtUrl] = useState("");
   const [ytVideo, setYtVideo] = useState("");
 
-  const tblHeaderVariants = ["Color", "Size", "Price", "Stock", "Action"];
+  const tblHeaderVariants = [
+    "Ser.",
+    "Color",
+    "Size",
+    "Price",
+    "Quantity",
+    "Action",
+  ];
   const initVariant = {
     color: "",
     size: "",
     price: "",
-    stock: "",
+    quantity: "",
   };
-  const [variants, setVariants] = useState([initVariant]);
+  const [variants, setVariants] = useState([
+    initVariant,
+    initVariant,
+    initVariant,
+  ]);
 
   return (
     <div className=" p-1.0 bg-wh flex flex-col gap-3">
       {/* start --  variants and stock */}
-      <div className="border border-slate-300 rounded-md ">
+      <div className="border border-slate-300 rounded-md flex flex-col gap-1.5 ">
         <EnhancedText
           kind={"two"}
           color="text-pr/400 px-0.75 py-0.12 bg-slate-200 rounded-md  "
@@ -70,42 +84,99 @@ export default function AddProduct({ actOn, useForEdit }) {
           Variants And Stock
         </EnhancedText>
 
-        <div className="flex flex-col gap-3 p-1.0">
-          <div className="flex flex-col gap-2 w-2/3">
-            <span className="text-pr/600">Brand Name</span>
-            <CustomInput ph="enter brand name" />
+        <div className="flex flex-col gap-2">
+          <div className="flex gap-2 justify-end px-1 font-sans  max-h-[28px]">
+            <div className="w-10.0 font-inter ">
+              <CustomInput
+                label={"Quantity"}
+                lblstyle="bg-pr/400 h-full pb-0.12 px-1 text-slate-100 rounded border-r border-slate-300 "
+              />
+            </div>
+            <div className="w-10.0 text-sm ">
+              <CustomInput
+                label={"Price"}
+                lblstyle="bg-pr/400 h-full pb-0.12 px-1 text-slate-100 rounded border-r border-slate-300 "
+              />
+            </div>
+            <div className="max-w-8.0">
+              <CustomButton
+                txt={"Apply To All"}
+                style={
+                  "bg-wh rounded-md h-full border text-pr/600 border-pr/400 text-sm font-inter 0.75/1  px-0.5 py-0.12"
+                }
+              />
+            </div>
           </div>
 
-          <div className="w-full border rounded-md border-slate-200 overflow-x-scroll">
-            <table className="w-full ">
-              <thead>
-                <tr className="tr_thead">
-                  {tblHeaderVariants.map((itm, ind) => {
-                    return (
-                      <th key={ind} className="th">
-                        {itm}
-                      </th>
-                    );
-                  })}
+          <div className="  w-full border rounded-md border-slate-200 px-1 overflow-y-scroll max-h-[16rem] min-h-[15rem]">
+            <table className="w-full h-full relative">
+              <thead className="w-full sticky top-0 z-10">
+                <tr className="tr_thead rounded-md  bg-">
+                  <th className="th bg-pr/400 drop-shadow text-slate-200">
+                    {tblHeaderVariants[0]}
+                  </th>
+                  <th className="th bg-pr/400 drop-shadow-md text-slate-200 w-9.0">
+                    {tblHeaderVariants[1]}
+                  </th>
+                  <th className="th bg-pr/400 drop-shadow text-slate-200 w-9.0">
+                    {tblHeaderVariants[2]}
+                  </th>
+                  <th className="th bg-pr/400 drop-shadow text-slate-200 w-8.0">
+                    {tblHeaderVariants[3]}
+                  </th>
+                  <th className="th bg-pr/400 drop-shadow text-slate-200 w-8.0">
+                    {tblHeaderVariants[4]}
+                  </th>
+                  <th className="th bg-pr/400 drop-shadow text-slate-200">
+                    {tblHeaderVariants[5]}
+                  </th>
                 </tr>
               </thead>
 
-              <tbody>
-                <tr className="tr_tbody">
-                  <td className="py-1.125">{1}</td>
-                  <td className="py-1.125">{"item"}</td>
-                  <td className="py-1.125">{"genericId"}</td>
+              <tbody className="w-full bg-wh py-1">
+                {variants.map((variant, ind) => {
+                  return (
+                    <tr className="tr_tbody h-[28px]">
+                      <td className="td w-5.0 max-w-5.0 ">
+                        <p className="border border-teal-600 rounded-md py-0.12">
+                          {ind + 1}
+                        </p>
+                      </td>
+                      <td className="td">
+                        <CustomSelect options={colorList} w="w-8.0" />
+                      </td>
+                      <td className="td">
+                        <CustomSelect options={sizeList} w="w-8.0" />
+                      </td>
+                      <td className="td  w-8.0">
+                        <CustomInput />
+                      </td>
 
-                  <td className="py-1.125">
-                    <CustomInput />
-                  </td>
-                  <td className="py-1.0 flex justify-center gap-2">
-                    <button>
-                      <Edit className="p-0.125 w-6 h-6 shadow-sm border bg-slate-200 border-teal-600 rounded-full" />
-                    </button>
-                    <button>
-                      <Delete className="p-0.125 w-6 h-6 shadow-sm border bg-slate-200 border-teal-600 rounded-full" />
-                    </button>
+                      <td className="td w-8.0 ">
+                        <CustomInput />
+                      </td>
+                      <td className="td">
+                        <button>
+                          <X className="  w-6 h-6 text-slate-600  " />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+                <tr className="mb-3">
+                  <td className="w-5.0 max-w-5.0   ">
+                    <CustomButton
+                      style={
+                        "w-full my-2 rounded-md border-2  bg-pr/400 shadow-md shadow-pr/400 bg-gradient bg-gradient-to-b from-slate-50  px-1"
+                      }
+                      afterClick={() => {
+                        setVariants([...variants, initVariant]);
+                      }}
+                      startIcon={
+                        <Plus className="text-pr/600 p-0.12 w-8 h-8" />
+                      }
+                      txt={""}
+                    />
                   </td>
                 </tr>
               </tbody>
@@ -113,6 +184,7 @@ export default function AddProduct({ actOn, useForEdit }) {
           </div>
         </div>
       </div>
+
       {/* start ---- product basic info */}
       <div className="border border-slate-300 rounded-md ">
         <EnhancedText
@@ -152,6 +224,11 @@ export default function AddProduct({ actOn, useForEdit }) {
               options={subCategories}
               ph={"sub-category"}
             />
+          </div>
+
+          <div className="flex flex-col gap-2 w-2/3">
+            <span className="text-pr/600">Brand Name</span>
+            <CustomInput ph="enter brand name" />
           </div>
         </div>
       </div>

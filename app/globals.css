@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,7 +26,7 @@
   background: #ffffff;
 }
 ::-webkit-scrollbar-button {
-  background: #c9370a;
+  background: #aca19d;
   height: 10px;
   border-radius: 10px;
 }
@@ -60,14 +62,23 @@
 }
 
 .tr_tbody {
-  @apply text-black py-1.125 font-normal text-0.9/1.25 text-center  capitalize border;
+  @apply text-black  font-normal text-0.9/1.25 text-center  capitalize;
 }
 .tr_thead {
   @apply text-sl/600 font-medium text-0.75/1 capitalize;
 }
 .th {
-  @apply px-0.25 py-0.62;
+  @apply px-0.25 py-0.25;
 }
 .td {
-  @apply px-0.25 py-1.125;
+  @apply px-0.25 py-0.25;
+}
+.brdr {
+  @apply border border-red-600;
+}
+.brdt {
+  @apply border border-teal-600;
+}
+.brdb {
+  @apply border border-black;
 }
