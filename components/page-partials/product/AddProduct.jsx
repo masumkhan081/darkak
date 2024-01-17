@@ -18,6 +18,7 @@ import {
   Info,
   InfoIcon,
   Plus,
+  Video,
   X,
 } from "lucide-react";
 import React, { useState } from "react";
@@ -321,7 +322,7 @@ export default function AddProduct({ actOn, useForEdit }) {
                     htmlFor="videoRadioLocal"
                     className="text-sm font-sans"
                   >
-                    Upload Video URL
+                    Upload Video Locally
                   </label>
                 </div>
               </div>
@@ -346,7 +347,7 @@ export default function AddProduct({ actOn, useForEdit }) {
                       className=" rounded-md w-5.0 h-4.0 outline-2 outline-dotted outline-pr/400"
                     />
                     {ytVideo == "" && (
-                      <ImagePlus className="absolute left-0 top-0  w-7 h-7 bg-wh text-pr/400" />
+                      <Video className="absolute left-0 top-0  w-7 h-7 bg-wh text-pr/400" />
                     )}
                   </label>
 
