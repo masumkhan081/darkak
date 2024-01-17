@@ -2,6 +2,7 @@ import React from "react";
 
 export default function CustomInput({
   id,
+  name,
   type,
   accept,
   required,
@@ -35,6 +36,7 @@ export default function CustomInput({
       {label && <p className="h-full py-0.25 px-1 bg-slate-200 border-r border-slate-300  ">{label}</p>}
       <input
         id={id}
+        name={name}
         type={type}
         required={true}
         placeholder={ph}

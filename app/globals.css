@@ -58,3 +58,16 @@
 .enhanced_title {
   @apply text-1.5/2 font-bold text-teal-700;
 }
+
+.tr_tbody {
+  @apply text-black py-1.125 font-normal text-0.9/1.25 text-center  capitalize border;
+}
+.tr_thead {
+  @apply text-sl/600 font-medium text-0.75/1 capitalize;
+}
+.th {
+  @apply px-0.25 py-0.62;
+}
+.td {
+  @apply px-0.25 py-1.125;
+}
