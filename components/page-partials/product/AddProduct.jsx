@@ -32,6 +32,8 @@ export default function AddProduct({ actOn, useForEdit }) {
   };
   const [selectedCat, setCat] = useState(initSelect);
   const [selectedSubCat, setSubCat] = useState(initSelect);
+  const [selectedWarranty, setSelectedWarranty] = useState(initSelect);
+  const [warrantyDuration, setWarrantyDuration] = useState(initSelect);
   const [images, setImages] = useState({
     "Cover Photo": "",
     "Image 2": "",
@@ -54,6 +56,22 @@ export default function AddProduct({ actOn, useForEdit }) {
   const [ytVideoURL, setYtUrl] = useState("");
   const [ytVideo, setYtVideo] = useState("");
 
+  const warrantyDurations = [
+    { id: 1, title: "1 Month" },
+    { id: 2, title: "2 Months" },
+    { id: 3, title: "3 Months" },
+    { id: 4, title: "6 Months" },
+    { id: 5, title: "1 Year" },
+    { id: 6, title: "2 Years" },
+    { id: 7, title: "3 Years" },
+    { id: 8, title: "4 Years" },
+    { id: 9, title: "5 Years" },
+  ];
+  const warrantyTypes = [
+    { id: 1, title: "No Warranty" },
+    { id: 2, title: "Brand Warranty" },
+    { id: 3, title: "Seller Warranty" },
+  ];
   const tblHeaderVariants = [
     "Ser.",
     "Color",
@@ -109,8 +127,8 @@ export default function AddProduct({ actOn, useForEdit }) {
             </div>
           </div>
 
-          <div className="  w-full border rounded-md border-slate-200 px-1 overflow-y-scroll max-h-[16rem] min-h-[15rem]">
-            <table className="w-full h-full relative">
+          <div className=" w-full  border rounded-md border-slate-200 px-1 overflow-y-scroll max-h-[16rem] min-h-[15rem]">
+            <table className=" w-full h-full relative ">
               <thead className="w-full sticky top-0 z-10">
                 <tr className="tr_thead rounded-md  bg-">
                   <th className="th bg-pr/400 drop-shadow text-slate-200">
@@ -128,7 +146,7 @@ export default function AddProduct({ actOn, useForEdit }) {
                   <th className="th bg-pr/400 drop-shadow text-slate-200 w-8.0">
                     {tblHeaderVariants[4]}
                   </th>
-                  <th className="th bg-pr/400 drop-shadow text-slate-200">
+                  <th className="th bg-pr/400 drop-shadow text-slate-200 w-8.0">
                     {tblHeaderVariants[5]}
                   </th>
                 </tr>
@@ -138,8 +156,8 @@ export default function AddProduct({ actOn, useForEdit }) {
                 {variants.map((variant, ind) => {
                   return (
                     <tr className="tr_tbody h-[28px]">
-                      <td className="td w-5.0 max-w-5.0 ">
-                        <p className="border border-teal-600 rounded-md py-0.12">
+                      <td className="td w-5.0 max-w-5.0  ">
+                        <p className="border border-teal-600 h-full rounded-md flex justify-center items-center">
                           {ind + 1}
                         </p>
                       </td>
@@ -156,10 +174,13 @@ export default function AddProduct({ actOn, useForEdit }) {
                       <td className="td w-8.0 ">
                         <CustomInput />
                       </td>
-                      <td className="td">
-                        <button>
-                          <X className="  w-6 h-6 text-slate-600  " />
-                        </button>
+                      <td className="td w-8.0">
+                        <CustomButton
+                          startIcon={
+                            <X className="  w-6 h-6 text-slate-600  " />
+                          }
+                          style="w-8.0  "
+                        ></CustomButton>
                       </td>
                     </tr>
                   );
@@ -195,41 +216,53 @@ export default function AddProduct({ actOn, useForEdit }) {
           Product Information
         </EnhancedText>
 
-        <div className="flex flex-col gap-3 px-1.0 py-1.5">
-          <div className="flex flex-col gap-2 w-2/3">
-            <span className="text-pr/600">Product Name</span>
-            <CustomInput label="English" ph="" />
+        <div className="flex flex-col gap-1.0 px-1.0 py-1.5">
+          <div className="flex flex-col gap-1 w-2/3">
+            <span className="text-pr/600">
+              Product Name<span className="mx-1 text-red-600">*</span>
+            </span>
+            <CustomInput ph="Enter product name" />
           </div>
 
-          <div className="flex justify-between w-2/3 items-center border border-slate-300 py-0.25 px-1 rounded-md">
+          <div className="flex  gap-3 w-2/3 items-center border border-slate-300 py-0.25 px-1 rounded-md">
             <EnhancedText
               kind={"five"}
               color="font-inter text-0.75/1 font-semibold text-pr/600 uppercase"
             >
               Select
             </EnhancedText>
-            <DropDown
-              onChange={(selected) => {
-                setCat(selected);
-              }}
-              value={selectedCat}
-              options={categories}
-              ph={"category"}
-            />
-            <ChevronsRight className="bg-slate-200 rounded-full p-0.12 w-5 h-5" />
-            <DropDown
-              onChange={(selected) => {
-                setSubCat(selected);
-              }}
-              value={selectedSubCat}
-              options={subCategories}
-              ph={"sub-category"}
-            />
+            <div className="flex-grow flex gap-3 justify-end items-center  ">
+              <DropDown
+                onChange={(selected) => {
+                  setCat(selected);
+                }}
+                value={selectedCat}
+                options={categories}
+                ph={"category"}
+              />
+              <ChevronsRight className=" rounded-full p-0.12 w-5 h-5" />
+              <DropDown
+                onChange={(selected) => {
+                  setSubCat(selected);
+                }}
+                value={selectedSubCat}
+                options={subCategories}
+                ph={"sub-category"}
+              />
+            </div>
           </div>
 
-          <div className="flex flex-col gap-2 w-2/3">
+          <div className="flex flex-col gap-1 w-2/3">
             <span className="text-pr/600">Brand Name</span>
-            <CustomInput ph="enter brand name" />
+            <CustomInput ph="Enter brand name" />
+          </div>
+          <div className="flex flex-col gap-1">
+            <label>Description</label>
+            <textarea
+              rows={4}
+              placeholder={"Enter details"}
+              className="px-0.5 py-0.38 border rounded-md outline-pr/400"
+            />
           </div>
         </div>
       </div>
@@ -377,86 +410,40 @@ export default function AddProduct({ actOn, useForEdit }) {
           Service & Warranty
         </EnhancedText>
 
-        <div className="flex flex-col gap-3 p-1.0">
-          <div className="flex flex-col gap-2 w-2/3">
-            <span className="text-pr/600">Product Name</span>
-            <CustomInput label="English" ph="" />
-            <CustomInput label="Bengali" ph="" />
-          </div>
-
-          <div className="flex gap-3 items-center">
+        <div className="flex flex-col gap-1.0 px-1.0 py-1.5">
+          <div className="flex gap-1.0 items-center">
             <EnhancedText
               kind={"five"}
               color="font-inter text-0.75/1 font-semibold text-pr/600 uppercase"
             >
               Select
             </EnhancedText>
-            <DropDown
+            <CustomSelect
+              value={selectedWarranty}
+              options={warrantyTypes}
               onChange={(selected) => {
-                setCat(selected);
+                setSelectedWarranty(selected);
               }}
-              value={selectedCat}
-              options={categories}
-              ph={"category"}
+              label={"Warranty Type"}
             />
-            <ChevronsRight className="bg-slate-100 rounded-full p-0.12 w-5 h-5" />
-            <DropDown
+            <CustomSelect
+              value={warrantyDuration}
               onChange={(selected) => {
-                setSubCat(selected);
+                setWarrantyDuration(selected);
               }}
-              value={selectedSubCat}
-              options={subCategories}
-              ph={"sub-category"}
+              label={"Warranty Duration"}
+              options={warrantyDurations}
+            />
+          </div>
+          <div className="w-full font-inter ">
+            <CustomInput
+              label={"Warranty Policy"}
+              lblstyle="bg-slate-200 px-1 py-0.12 text-slate-600   border-r border-slate-400 "
             />
           </div>
         </div>
       </div>
       <form className="flex flex-col gap-4 text-sm my-4">
-        <CustomSelect
-          label="Search and select product model"
-          options={productGroups}
-        />
-
-        <div className="grid sm:grid-cols-2 grid-cols-1 gap-1.5">
-          <div className="flex flex-col gap-2">
-            <label>Product Name</label>
-            <CustomInput
-              type={"text"}
-              ph={"Enter product name"}
-              required={true}
-            />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label>Stock Notify</label>
-
-            <CustomInput type={"number"} required={true} />
-          </div>
-        </div>
-
-        <div className="grid sm:grid-cols-2 grid-cols-1 gap-1.5">
-          <div className="flex flex-col gap-2">
-            <label>warranty</label>
-            <CustomSelect
-              label={"Enter warranty duration"}
-              options={warrenties}
-            />
-          </div>
-          <div className="  flex flex-col gap-2">
-            <label>Sale Price</label>
-            <CustomInput type={"number"} required={true} />
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <label>Description</label>
-          <textarea
-            rows={4}
-            placeholder={"Enter details"}
-            className="px-0.5 py-0.38 border rounded-md"
-          />
-        </div>
-
         <CustomButton
           startIcon={<CheckCheck className="w-4 h-4 mr-1" />}
           txt={"Submit"}

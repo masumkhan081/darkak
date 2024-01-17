@@ -3,7 +3,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 
-const DropDown = ({ options, value, onChange, bg, ph, icon, label }) => {
+const DropDown = ({
+  options,
+  value,
+  onChange,
+  bg,
+  ph,
+  icon,
+  label,
+  rounded,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const handleClickOutside = (e) => {
@@ -29,13 +38,26 @@ const DropDown = ({ options, value, onChange, bg, ph, icon, label }) => {
   };
 
   return (
-    <div className="relative min-w-[150px] shadow-sm shadow-slate-300 border" ref={dropdownRef}>
+    <div
+      className="relative min-w-[150px] shadow-sm shadow-slate-300 border ${rounded}"
+      ref={dropdownRef}
+    >
       <div
-        className={`  px-1.0 font-inter text-0.9/1  capitalize  text-pr/600 flex justify-between items-center ${styles[bg]}`}
+        className={`  px-1.0 font-inter text-0.9/1  capitalize  text-pr/600 flex gap-2 justify-between items-center ${styles[bg]}`}
         onClick={toggleDropdown}
-      >
+      > {label && (
+          <span
+            className={
+              bg == "blue"
+                ? "bg-blue-900 text-wh text-sm font-semibold px-0.5 h-full rounded-md py-0.125"
+                : "bg-slate-300 text-black text-sm font-semibold px-0.5  rounded-md py-0.125 h-full"
+            }
+          >
+            {label}
+          </span>
+        )}
         <span>{value?.title ? value.title : ph}</span>
-        <ChevronDown className="w-3 h-3"/>
+        <ChevronDown className="w-3 h-3" />
       </div>
 
       {isOpen ? (

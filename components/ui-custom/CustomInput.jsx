@@ -35,7 +35,13 @@ export default function CustomInput({
         </button>
       )}
       {label && (
-        <p className={lblstyle?lblstyle:"h-full pb-0.12 px-1 bg-slate-200 border-r border-slate-300  "}>
+        <p
+          className={
+            lblstyle
+              ? lblstyle
+              : "px-1 bg-slate-200 border-r border-slate-300  "
+          }
+        >
           {label}
         </p>
       )}

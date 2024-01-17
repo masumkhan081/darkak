@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-const CustomSelect = ({ options, value, onChange, bg, ph, icon, label,w }) => {
+const CustomSelect = ({ options, value, onChange, bg, ph, icon, label, w }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const handleClickOutside = (e) => {
@@ -31,22 +31,22 @@ const CustomSelect = ({ options, value, onChange, bg, ph, icon, label,w }) => {
   return (
     <div className="relative h-full" ref={dropdownRef}>
       <div
-        className={`py-1 px-1.0 ${w} h-full border rounded-md capitalize cursor-pointer flex justify-between items-center ${styles[bg]}`}
+        className={`py-1 px-0.25 ${w} h-full border border-slate-300 rounded-md capitalize cursor-pointer flex justify-between items-center ${styles[bg]}`}
         onClick={toggleDropdown}
       >
         {label && (
           <span
             className={
               bg == "blue"
-                ? "bg-blue-900 text-wh text-sm font-semibold px-0.5 h-full rounded-md py-0.125"
-                : "bg-slate-300 text-black text-sm font-semibold px-0.5  rounded-md py-0.125 h-full"
+                ? "bg-blue-900 text-wh text-sm font-semibold px-0.25 h-full rounded-md py-0.125"
+                : " border border-slate-400 text-black text-sm font-semibold px-0.25  rounded-md py-0.125 h-full"
             }
           >
             {label}
           </span>
         )}
         {icon && icon}
-        <span>{value ? value : ph}</span>
+        <span className="flex-grow px-2">{value?.title ? value.title : ph}</span>
         <ChevronDown className="w-[1.2rem] h-[1.2rem] ms-1" />
       </div>
 
@@ -63,7 +63,7 @@ const CustomSelect = ({ options, value, onChange, bg, ph, icon, label,w }) => {
                 setIsOpen(false);
               }}
             >
-              {option}
+              {option.title}
             </li>
           ))}
         </ul>
