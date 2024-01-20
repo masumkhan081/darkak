@@ -22,7 +22,7 @@ export default function CustomInput({
   startButtonTxt,
 }) {
   return (
-    <div className="flex rounded-md border border-slate-300 w-full h-full font-sans text-base">
+    <div className="flex items-center rounded-md border border-slate-300 w-full h-full font-sans text-base">
       {startIcon && (
         <span className="bg-slate-200 py-0.25 px-0.25 border-r rounded-r-sm border-slate-300">
           {startIcon}
@@ -51,7 +51,7 @@ export default function CustomInput({
         type={type}
         required={true}
         placeholder={ph}
-        className="flex-grow py-0.25 px-0.38 outline-none rounded-md h-full overflow-hidden"
+        className="flex-grow py-0.25 px-0.38 outline-none  h-fit  overflow-hidden"
         value={value}
         onChange={afterChange}
         accept={accept}

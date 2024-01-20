@@ -55,23 +55,28 @@ export default function Login() {
         <span className="text-sm text-neutral-400">
           Sign In to your account
         </span>
-        <CustomInput
-          type={"text"}
-          required={true}
-          ph="Username"
-          value={user.username}
-          afterChange={(e) => setUser({ ...user, username: e.target.value })}
-          startIcon={<User className="icon_sm" />}
-        />
-        <CustomInput
-          type={"password"}
-          required={true}
-          ph="Password"
-          value={user.password}
-          afterChange={(e) => setUser({ ...user, password: e.target.value })}
-          startIcon={<Lock className="icon_sm" />}
-          endIcon={<Eye className="icon_sm" />}
-        />
+        <div>
+          <CustomInput
+            type={"text"}
+            required={true}
+            ph="Username"
+            value={user.username}
+            afterChange={(e) => setUser({ ...user, username: e.target.value })}
+            startIcon={<User className="icon_sm" />}
+          />
+        </div>
+
+        <div>
+          <CustomInput
+            type={"password"}
+            required={true}
+            ph="Password"
+            value={user.password}
+            afterChange={(e) => setUser({ ...user, password: e.target.value })}
+            startIcon={<Lock className="icon_sm" />}
+            endIcon={<Eye className="icon_sm" />}
+          />
+        </div>
 
         <div className="flex justify-between items-center">
           <CustomButton

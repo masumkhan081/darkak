@@ -6,8 +6,9 @@ import CustomSelect from "@/components/ui-custom/CustomSelect";
 import DropDown from "@/components/ui-custom/DropDown";
 import EnhancedText from "@/components/ui-custom/EnhancedText";
 import productGroups from "@/static-data/product-groups";
-import warrenties from "@/static-data/warrenties";
+import { warrantyDurations, warrantyTypes } from "@/static-data/warrenties";
 import { colorList, sizeList } from "@/static-data/product-variants";
+import { tblHeaderVariants } from "@/static-data/table-headers";
 import {
   CheckCheck,
   ChevronsRight,
@@ -56,33 +57,9 @@ export default function AddProduct({ actOn, useForEdit }) {
   const [ytVideoURL, setYtUrl] = useState("");
   const [ytVideo, setYtVideo] = useState("");
 
-  const warrantyDurations = [
-    { id: 1, title: "1 Month" },
-    { id: 2, title: "2 Months" },
-    { id: 3, title: "3 Months" },
-    { id: 4, title: "6 Months" },
-    { id: 5, title: "1 Year" },
-    { id: 6, title: "2 Years" },
-    { id: 7, title: "3 Years" },
-    { id: 8, title: "4 Years" },
-    { id: 9, title: "5 Years" },
-  ];
-  const warrantyTypes = [
-    { id: 1, title: "No Warranty" },
-    { id: 2, title: "Brand Warranty" },
-    { id: 3, title: "Seller Warranty" },
-  ];
-  const tblHeaderVariants = [
-    "Ser.",
-    "Color",
-    "Size",
-    "Price",
-    "Quantity",
-    "Action",
-  ];
   const initVariant = {
-    color: "",
-    size: "",
+    color: initSelect,
+    size: initSelect,
     price: "",
     quantity: "",
   };
@@ -91,6 +68,21 @@ export default function AddProduct({ actOn, useForEdit }) {
     initVariant,
     initVariant,
   ]);
+
+  function removeOne(index) {
+    setVariants([
+      ...variants.slice(0, index - 1),
+      ...variants.slice(index, variants.length),
+    ]);
+  }
+
+  function handleInput({ selected, key, index }) {
+    setVariants([
+      ...variants.slice(0, index - 1),
+      updatedOne,
+      ...variants.slice(index, variants.length),
+    ]);
+  }
 
   return (
     <div className=" p-1.0 bg-wh flex flex-col gap-3">
@@ -104,7 +96,7 @@ export default function AddProduct({ actOn, useForEdit }) {
         </EnhancedText>
 
         <div className="flex flex-col gap-2">
-          <div className="flex gap-2 justify-end px-1 font-sans  max-h-[28px]">
+          <div className="flex gap-2 justify-start px-1 font-sans  max-h-[28px]">
             <div className="w-10.0 font-inter ">
               <CustomInput
                 label={"Quantity"}
@@ -129,24 +121,24 @@ export default function AddProduct({ actOn, useForEdit }) {
 
           <div className=" w-full  border rounded-md border-slate-200 px-1 overflow-y-scroll max-h-[16rem] min-h-[15rem]">
             <table className=" w-full h-full relative ">
-              <thead className="w-full sticky top-0 z-10">
-                <tr className="tr_thead rounded-md  bg-">
-                  <th className="th bg-pr/400 drop-shadow text-slate-200">
+              <thead className="w-full sticky top-0 z-10 rounded-md">
+                <tr className="tr_thead rounded-md ">
+                  <th className="th bg-pr/400 drop-shadow text-wh text-base rounded-l-full">
                     {tblHeaderVariants[0]}
                   </th>
-                  <th className="th bg-pr/400 drop-shadow-md text-slate-200 w-9.0">
+                  <th className="th bg-pr/400 drop-shadow-md text-wh w-9.0 text-base">
                     {tblHeaderVariants[1]}
                   </th>
-                  <th className="th bg-pr/400 drop-shadow text-slate-200 w-9.0">
+                  <th className="th bg-pr/400 drop-shadow text-wh w-9.0 text-base">
                     {tblHeaderVariants[2]}
                   </th>
-                  <th className="th bg-pr/400 drop-shadow text-slate-200 w-8.0">
+                  <th className="th bg-pr/400 drop-shadow text-wh w-8.0 text-base">
                     {tblHeaderVariants[3]}
                   </th>
-                  <th className="th bg-pr/400 drop-shadow text-slate-200 w-8.0">
+                  <th className="th bg-pr/400 drop-shadow text-wh w-8.0 text-base">
                     {tblHeaderVariants[4]}
                   </th>
-                  <th className="th bg-pr/400 drop-shadow text-slate-200 w-8.0">
+                  <th className="th bg-pr/400 drop-shadow text-wh w-8.0 text-base rounded-r-full">
                     {tblHeaderVariants[5]}
                   </th>
                 </tr>
@@ -157,12 +149,19 @@ export default function AddProduct({ actOn, useForEdit }) {
                   return (
                     <tr className="tr_tbody h-[28px]">
                       <td className="td w-5.0 max-w-5.0  ">
-                        <p className="border border-teal-600 h-full rounded-md flex justify-center items-center">
+                        <p className="border bg-pr/400 text-slate-200  font-bold h-full rounded-md flex justify-center items-center">
                           {ind + 1}
                         </p>
                       </td>
                       <td className="td">
-                        <CustomSelect options={colorList} w="w-8.0" />
+                        <CustomSelect
+                          onChange={(selected) =>
+                            handleInput({ selected, key: "color", index: ind })
+                          }
+                          options={colorList}
+                          w="w-8.0"
+                          value={initSelect}
+                        />
                       </td>
                       <td className="td">
                         <CustomSelect options={sizeList} w="w-8.0" />
@@ -189,7 +188,7 @@ export default function AddProduct({ actOn, useForEdit }) {
                   <td className="w-5.0 max-w-5.0   ">
                     <CustomButton
                       style={
-                        "w-full my-2 rounded-md border-2  bg-pr/400 shadow-md shadow-pr/400 bg-gradient bg-gradient-to-b from-slate-50  px-1"
+                        "w-full my-2 text-slate-200 rounded-md bg-pr/600 shadow shadow-pr/400 bg-gradient bg-gradient-to-b from-pr/400  px-1"
                       }
                       afterClick={() => {
                         setVariants([...variants, initVariant]);
