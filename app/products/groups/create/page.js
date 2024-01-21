@@ -1,4 +1,4 @@
-import AddGroup from "@/components/page-partials/product-group/AddGroup";
+import AddGroup from "@/components/page-partials/design/AddGroup";
 import React from "react";
 
 export default function page() {

@@ -1,4 +1,4 @@
-import AddModel from '@/components/page-partials/product-model/AddModel'
+import AddModel from '@/components/page-partials/design/AddModel'
 import React from 'react'
 
 export default function page() {

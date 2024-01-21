@@ -66,64 +66,77 @@ const sidenav = [
   },
   {
     id: 2,
-    label: "User Roles",
+    label: "Account & Settings",
     icon: <Contact className="w-5 h-5" />,
     sub: true,
     childs: [
       {
         id: 201,
-        label: "Add Role",
+        label: "Profile",
         icon: <CopyPlus className="w-5 h-5" />,
-        to: "/user-roles/create",
+        to: "/account-setting/profile",
       },
       {
         id: 202,
-        label: "Manage Roles",
+        label: "Users",
         icon: <FileCog className="w-5 h-5" />,
-        to: "/user-roles",
+        to: "/account-setting/users",
+      },
+      {
+        id: 202,
+        label: "Account Settings",
+        icon: <FileCog className="w-5 h-5" />,
+        to: "/account-setting/settings",
       },
     ],
   },
   {
     id: 3,
-    label: "User",
+    label: "Finance",
     icon: <User className="w-5 h-5" />,
     sub: true,
     childs: [
       {
         id: 301,
-        label: "Add User",
+        label: "Account Statements",
         icon: <CopyPlus className="w-5 h-5" />,
-        to: "/users/create",
+        to: "/finance/account-statements",
       },
       {
         id: 302,
-        label: "Manage Users",
+        label: "Order Overview",
         icon: <FileCog className="w-5 h-5" />,
-        to: "/users",
+        to: "/finance/order-overview",
+      },
+      {
+        id: 302,
+        label: "Transaction Overview",
+        icon: <FileCog className="w-5 h-5" />,
+        to: "/finance/transaction-overview",
       },
     ],
   },
   {
     id: 4,
-    label: "Supplier",
+    label: "Order & Reviews",
     icon: <Package className="w-5 h-5" />,
     sub: true,
     childs: [
       {
         id: 401,
-        label: "Add Supplier",
+        label: "Manage Orders",
         icon: <CopyPlus className="w-5 h-5" />,
-        to: "/suppliers/create",
+        to: "/order-reviews/orders",
       },
       {
         id: 202,
-        label: "Manage Suppliers",
+        label: "Manage Reviews",
         icon: <FileCog className="w-5 h-5" />,
-        to: "/suppliers",
+        to: "/order-reviews/reviews",
       },
     ],
   },
+  /*
   {
     id: 5,
     label: "Customer",
@@ -483,6 +496,7 @@ const sidenav = [
       },
     ],
   },
+  */
 ];
 
 export default sidenav;

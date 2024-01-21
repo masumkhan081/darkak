@@ -1,4 +1,4 @@
-import RootLayout from "@/components/layout-custom/RootLayout";
+import RootLayout from "@/layout-custom/RootLayout";
 import "./globals.css";
 import Provider from "@/redux/ReduxProvider";
 
@@ -10,7 +10,7 @@ export const metadata = {
 export default function layout({ children }) {
   return (
     <html lang="en">
-      <body className={"bg_sl_1"}>
+      <body className="bg-deep-1  w-[100vw] h-[100vh]">
         <Provider>
           <RootLayout content={children} />
         </Provider>

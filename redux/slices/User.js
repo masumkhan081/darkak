@@ -12,15 +12,13 @@ export const userSlice = createSlice({
   },
   reducers: {
     setLoggedInUser: (state, action) => {
-      // alert(JSON.stringify(action.payload));
-      state = {
-        ...state,
-        ...action.payload,
-        authenticated: action.payload.authenticated,
-      };
-      // state.username = action.payload.username;
-      // state.password = action.payload.password;
-      // state.authenticated = action.payload.authenticated;
+      // state = {
+      //   ...state,
+      //   ...action.payload,
+      // };
+      state.authenticated = action.payload.authenticated;
+      state.username = action.payload.username;
+      state.password = action.payload.password;
     },
   },
 });

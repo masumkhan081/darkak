@@ -21,9 +21,7 @@ export default function SideNav() {
   const widthControl = () =>
     isSideNavFolded ? "w-4.0 flex flex-col justify-between gap-4 " : "w-16.0";
   const visibilityControl = () =>
-    isSideNavVisible
-      ? "block flex  flex-col justify-between gap-4  "
-      : "hidden";
+    isSideNavVisible ? "block flex  flex-col justify-between  " : "hidden";
 
   const expansionStatus = (key) => (expansion[key] ? " block" : " hidden");
 
@@ -33,13 +31,16 @@ export default function SideNav() {
 
   return (
     <div
-      className={` ${widthControl()} ${visibilityControl()} min-h-screen max-h-screen bg-slate-800   `}
+      className={` ${widthControl()} ${visibilityControl()}  bg-tl1 w-[vw-20] h-[100vh] max-h-[100vh]  `}
     >
-      <div className="bg-slate-950 py-0.125 sm:flex hidden  rounded-md  w-full  justify-center">
-        <Image src={brand} className="w-7.0 h-4.0  overflow-hidden" />
+      <div className="  py-0.125 sm:flex hidden  rounded-sm  w-full  justify-center items-center h-[10vh] ">
+        {/* <Image src={brand} className="w-7.0 h-4.0  overflow-hidden" /> */}
+        <span className="font-semibold font-mono text-xl drop-shadow-md">
+          Darkak
+        </span>
       </div>
 
-      <ul className="flex-grow px-1 py-1.0 flex flex-col justify-between gap-4 overflow-y-scroll overflow-x-hidden">
+      <ul className="flex-grow h-[84vh] bg-tl1 bg-opacity-80 px-1 py-1.0 flex flex-col justify-start gap-4 overflow-y-scroll overflow-x-hidden">
         {sidenav.map((navItem) => {
           return (
             <li className="flex flex-col w-full  " key={navItem.id}>
@@ -55,7 +56,7 @@ export default function SideNav() {
                     })
                   )
                 }
-                className="bg-slate-950 bg-opacity-80 shadow-sm text-slate-100 font-sans font-semibold w-full flex gap-3 justify-between items-center rounded-md border border-slate-700 px-2 py-0.25"
+                className="bg-deep-3 shadow-sm text-blck font-sans font-semibold w-full flex gap-3 justify-between items-center hover:bg-deep-2 rounded-md border border-tl1 px-2 py-0.25"
               >
                 {navItem.icon}
                 {!isSideNavFolded && (
@@ -72,7 +73,7 @@ export default function SideNav() {
 
               {navItem.sub && (
                 <ul
-                  className={`bg-slate-800 pt-3 space-y-2 w-full  ${expansionStatus(
+                  className={`bg-deep-3 rounded-md py-3 space-y-2 w-full  ${expansionStatus(
                     navItem.label
                   )}`}
                 >
@@ -81,7 +82,7 @@ export default function SideNav() {
                       <li key={item.id}>
                         <Link
                           href={item.to}
-                          className="bg-slate-900 bg-opacity-60 text-slate-100 font-mono w-full flex justify-between items-center rounded-md border border-slate-600 px-2 py-0.125"
+                          className="bg-deep-3 hover:border hover:border-tl-3 text-blck font-mono w-full flex justify-between items-center rounded-md px-2 py-0.125"
                         >
                           {item.icon}
                           {!isSideNavFolded && (
@@ -98,44 +99,15 @@ export default function SideNav() {
             </li>
           );
         })}
-        {/*
-        <div>
-          <CustomButton
-            id="pokath"
-            // afterHover={(e) => alert(e.target.offsetTop)}
-            startIcon={<User className={cmn_icn_class} />}
-            txt={isSideNavFolded ? "modal" : " many many text"}
-            style="border-2 border-teal-600"
-          />
-        </div>
-        <div>
-          <CustomButton
-            id="pussyass"
-            // afterHover={(e) =>
-            //   setTopSpace(document.getElementById("pussyass").offsetTop)
-            // }
-            startIcon={<User className={cmn_icn_class} />}
-            txt={isSideNavFolded ? "--" : " many many text"}
-            style="border-2 border-teal-600"
-          />
-           {isSideNavFolded ? (
-            <div
-              className={`block absolute z-10 left-[120px] ${adjustTop()} border rounded-md bg-wh border-yellow-600 w-38.0 h-25.0`}
-            >
-              <span>obj-modal</span>
-            </div>
-          ) : null} 
-        </div>
-*/}
       </ul>
 
-      <div>
+      <div className="border-2 rounded-md border-tan-6 h-[6vh] flex flex-col justify-center">
         <CustomButton
           endIcon={
             <ChevronRight
               className={`${
                 isSideNavFolded ? " rotate-0 " : "rotate-180"
-              } w-7 h-7 text-slate-200`}
+              } w-7 h-7 text-blck`}
             />
           }
           afterClick={() =>
@@ -143,7 +115,7 @@ export default function SideNav() {
               setSideNavFoldability({ isSideNavFolded: !isSideNavFolded })
             )
           }
-          style="bg-slate-950 py-0.5 px-0.25  rounded-md  w-full sm:flex hidden justify-center"
+          style="   py-0.5 px-0.25  rounded-md  w-full sm:flex hidden justify-center"
         />
       </div>
     </div>

@@ -33,14 +33,12 @@ export default function Login() {
       dispatch(setLoggedInUser({ ...user, authenticated: true }));
       router.push("/dashboard", { scroll: false });
     }
-
-    // alert("😂");
   }
 
   return (
     <div className="h-26.0 max-w-35.0 bg-wh rounded-md   border border-slate-300 flex ">
       <form className=" flex flex-col gap-1.5 px-3.0 py-3.5 h-full rounded-s-md">
-        <EnhancedText kind="one" color="text-pr">
+        <EnhancedText kind="one" color="text-tl-3">
           Login
           <CustomButton
             txt="Test-Data"
@@ -74,7 +72,7 @@ export default function Login() {
             value={user.password}
             afterChange={(e) => setUser({ ...user, password: e.target.value })}
             startIcon={<Lock className="icon_sm" />}
-            endIcon={<Eye className="icon_sm" />}
+            // endIcon={<Eye className="icon_sm" />}
           />
         </div>
 
@@ -93,15 +91,9 @@ export default function Login() {
           />
         </div>
       </form>
-      <div className="  md:flex hidden flex-col gap-1.5 justify-center items-start px-3.0 py-3.5 rounded-e-md bg-blue-800 text-wh">
-        <p>
-          {JSON.stringify(email)}
-          {JSON.stringify(authenticated)}
-        </p>
-        <p className="text-wh font-semibold drop-shadow-md text-2xl ">
-          Laptop Plaza
-        </p>
-        <p className="text-sm">The Worlds Largest Laptop Distributor</p>
+      <div className="  md:flex hidden flex-col gap-1.5 justify-center items-start px-3.0 py-3.5 rounded-e-md bg-tl-3 text-wh">
+        <p className="text-wh font-semibold drop-shadow-md text-2xl ">Darkak</p>
+        <p className="text-sm">Lorem Ipsum {JSON.stringify(authenticated)}</p>
         <p className="flex flex-wrap gap-1 italic text-sm">
           <span className="">Developed By</span>
           <span className="font-bold">Softronixs ltd</span>

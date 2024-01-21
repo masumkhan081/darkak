@@ -1,4 +1,4 @@
-import AddCategory from "@/components/page-partials/product-category/AddCategory";
+import AddCategory from "@/components/page-partials/design/AddCategory";
 import React from "react";
 
 export default function page() {

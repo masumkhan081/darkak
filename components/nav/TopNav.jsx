@@ -42,48 +42,46 @@ export default function TopNav() {
   return (
     <div
       style={{ position: "-webkit-sticky", position: "sticky", top: 0 }}
-      className="w-full flex flex-col  bg-wh border-b border-slate-400 rounded-b-md"
+      className="w-full h-[10vh]  bg-tl1  rounded-b-md flex justify-between items-center  px-1.0 py-1    "
     >
-      <div className="flex justify-between items-center  px-1.0 py-1   border-b border-slate-300  ">
+      <div className="flex flex-col gap-1 items-start">
         <CustomButton
           afterClick={() =>
             dispatch(
               setSideNavVisibility({ isSideNavVisible: !isSideNavVisible })
             )
           }
-          startIcon={<Menu className="w-7 h-7 text-black" />}
+          startIcon={<Menu className="w-6 h-6 text-black" />}
           style=" "
         />
+        <span className="text-xs">{"Home" + pathname}</span>
+      </div>
 
-        <p className="flex gap-2 items-center font-inter">
-          <span>
-          {JSON.stringify(isSideNavVisible)}  Hi, <b>omuk !</b>
-          </span>
+      <p className="flex gap-2 items-center font-inter">
+        <span>
+          Hi, <b>omuk !</b>
+        </span>
 
-          <CustomButton
-            afterClick={() =>
-              dispatch(
-                setProfileModal({ isProfileModalOpen: !isProfileModalOpen })
-              )
-            }
-            startIcon={<UserCog className="w-6 h-7 text-orange-800 my-0.125" />}
-            style=" py-0.25 px-0.5 rounded-full shadow-sm bg-slate-200"
+        <CustomButton
+          afterClick={() =>
+            dispatch(
+              setProfileModal({ isProfileModalOpen: !isProfileModalOpen })
+            )
+          }
+          startIcon={<UserCog className="w-5 h-6 text-leanin-1 " />}
+          style=" py-0.12 px-0.5 rounded-full shadow-sm border border-tan-1"
+        />
+        <div
+          className={isProfileModalOpen ? "nav_drop_down" : `hidden`}
+          ref={dropdownRef}
+        >
+          <ModalBodyProfile
+            onClose={() => {
+              alert("?");
+            }}
           />
-          <div
-            className={isProfileModalOpen ? "nav_drop_down" : `hidden`}
-            ref={dropdownRef}
-          >
-            <ModalBodyProfile
-              onClose={() => {
-                alert("?");
-              }}
-            />
-          </div>
-        </p>
-      </div>
-      <div className="flex justify-start py-0.25 px-1.0 font-mono text-sm">
-        <span className="">{"Home" + pathname}</span>
-      </div>
+        </div>
+      </p>
     </div>
   );
 }
