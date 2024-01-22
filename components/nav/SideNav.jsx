@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import CustomButton from "../ui-custom/CustomButton";
 import { ChevronLeft, ChevronRight, User } from "lucide-react";

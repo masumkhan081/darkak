@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import CustomButton from "../ui-custom/CustomButton";
 import { UserCog } from "lucide-react";

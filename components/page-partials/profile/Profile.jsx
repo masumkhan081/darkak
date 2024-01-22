@@ -17,9 +17,7 @@ export default function Profile() {
   const currentSubTab = useSelector((state) => state.profile.currentSubTab);
 
   const stylActSubTab = (tabText) =>
-    currentSubTab === tabText
-      ? " border border-tl-5   "
-      : "   ";
+    currentSubTab === tabText ? " border border-tl-5   " : "   ";
   const stylActTab = (tabText) =>
     currentTab === tabText ? " border border-tl-5" : "  ";
 
