@@ -84,11 +84,11 @@ export default function SideNav() {
                       <li key={item.id}>
                         <Link
                           href={item.to}
-                          className="bg-tl1 border border-tl1 hover:border-tl-3 text-blck font-mono w-full flex justify-between items-center rounded-md px-2 py-0.125"
+                          className="bg-tl1 border border-tl1 hover:border-tl-3 text-blck font-mono w-full flex gap-2 justify-start items-center rounded-md px-2 py-0.125"
                         >
                           {item.icon}
                           {!isSideNavFolded && (
-                            <span className="flex-grow text-center">
+                            <span className="flex-grow ">
                               {item.label}
                             </span>
                           )}
