@@ -7,9 +7,14 @@ import {
   setCurrentTab,
   setTab,
 } from "@/redux/slices/Profile";
-import { tabMap } from "@/static-data/profile-page-tabs";
+import { tabMap } from "@/static-data/tabs-profile-page";
 import EnhancedText from "@/components/ui-custom/EnhancedText";
 import CustomInput from "@/components/ui-custom/CustomInput";
+import SellerAccount from "./SellerAccount";
+import BusinessInfo from "./BusinessInfo";
+import PaymentAcc from "./PaymentAcc";
+import WarehouseAdd from "./WarehouseAdd";
+import ReturnAdd from "./ReturnAdd";
 
 export default function Profile() {
   const dispatch = useDispatch();
@@ -54,31 +59,14 @@ export default function Profile() {
           })}
         </div>
       </div>
-      <div className="flex flex-col gap-1.0  p-1.5  bg-deep-3 rounded-md">
-        <EnhancedText kind={"two"}>Seller Account</EnhancedText>
 
-        <div className="flex flex-col gap-2 px-2 w-3/4">
-          <div className="grid grid-cols-7 items-center rounded-md border border-slate-300">
-            <span className="col-span-2 ps-2">Seller ID</span>
-            <input type="text" className="col-span-5 py-0.25 rounded-r-md" />
-          </div>
-          <div className="grid grid-cols-7 items-center rounded-md border border-slate-300">
-            <span className="col-span-2 ps-2">First and Last Name</span>
-            <input type="text" className="col-span-5 py-0.25 rounded-r-md" />
-          </div>
-          <div className="grid grid-cols-7 items-center rounded-md border border-slate-300">
-            <span className="col-span-2 ps-2 ">Contact Email address</span>
-            <input type="text" className="col-span-5 py-0.25 rounded-r-md" />
-          </div>
-          <div className="grid grid-cols-7 items-center rounded-md border border-slate-300">
-            <span className="col-span-2 ps-2">Phone Number</span>
-            <input type="text" className="col-span-5 py-0.25 rounded-r-md" />
-          </div>
-          <div className="grid grid-cols-7 items-center rounded-md border border-slate-300">
-            <span className="col-span-2 ps-2">Display /Shop Name</span>
-            <input type="text" className="col-span-5 py-0.25 rounded-r-md" />
-          </div>
-        </div>
+      <div className="flex flex-col gap-1.0  p-1.5  bg-deep-3 rounded-md">
+        <EnhancedText kind={"two"}>{currentSubTab}</EnhancedText>
+        {currentSubTab == "Seller Account" && <SellerAccount />}
+        {currentSubTab == "Business Information" && <BusinessInfo />}
+        {currentSubTab == "Payment Account" && <PaymentAcc />}
+        {currentSubTab == "Warehouse Address" && <WarehouseAdd />}
+        {currentSubTab == "Return Address" && <ReturnAdd />}
       </div>
     </div>
   );

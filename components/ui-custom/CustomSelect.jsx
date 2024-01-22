@@ -51,7 +51,7 @@ const CustomSelect = ({ options, value, onChange, bg, ph, icon, label, w }) => {
       </div>
 
       {isOpen ? (
-        <ul className="absolute w-full z-10 top-full text-black  border  rounded-md shadow   overflow-y-auto scrollbar bg-white max-h-60">
+        <ul className="absolute w-full z-10 top-full text-black  border  rounded-md shadow   overflow-y-auto scrollbar bg-white h-auto">
           {options?.map((option, index) => (
             <li
               key={index}

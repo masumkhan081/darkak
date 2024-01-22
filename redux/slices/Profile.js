@@ -1,4 +1,4 @@
-import { tabMap } from "@/static-data/profile-page-tabs";
+import { tabMap } from "@/static-data/tabs-profile-page";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const profileSlice = createSlice({
