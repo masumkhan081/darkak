@@ -46,7 +46,9 @@ const CustomSelect = ({ options, value, onChange, bg, ph, icon, label, w }) => {
           </span>
         )}
         {icon && icon}
-        <span className="flex-grow px-2">{value?.title ? value.title : ph}</span>
+        <span className="flex-grow px-2">
+          {value?.title ? value.title : ph}
+        </span>
         <ChevronDown className="w-[1.2rem] h-[1.2rem] ms-1" />
       </div>
 
