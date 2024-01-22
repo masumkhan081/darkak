@@ -11,15 +11,13 @@ import ProtectedRoute from "@/components/route/ProtectedRoute";
 export default function RootLayout({ content }) {
   const path = usePathname();
   return (
-    <>
+    <div>
       {path.endsWith("login") === false && (
         //  <ProtectedRoute>
         <div className="flex w-full ">
-          <div className="w-[20vw]">
-            <SideNav />
-          </div>
+          <SideNav />
 
-          <div className="flex flex-grow flex-col gap-0 h-[100vh] max-h-[100vh]  ">
+          <div className="flex flex-col gap-0 ">
             <TopNav />
             {content}
           </div>
@@ -27,6 +25,6 @@ export default function RootLayout({ content }) {
         // </ProtectedRoute>
       )}
       {path.endsWith("login") === true && <>{content}</>}
-    </>
+    </div>
   );
 }

@@ -34,6 +34,13 @@ import {
   ScrollText,
   Undo2,
   SendToBack,
+  Receipt,
+  UserCog,
+  FileBarChart2,
+  FolderKanban,
+  GanttChartSquare,
+  MessageSquareDashed,
+  ListTree,
 } from "lucide-react";
 
 const sidenav = [
@@ -67,25 +74,25 @@ const sidenav = [
   {
     id: 2,
     label: "Account & Settings",
-    icon: <Contact className="w-5 h-5" />,
+    icon: <UserCog className="w-5 h-5" />,
     sub: true,
     childs: [
       {
         id: 201,
         label: "Profile",
-        icon: <CopyPlus className="w-5 h-5" />,
+        icon: <User className="w-5 h-5" />,
         to: "/account-setting/profile",
       },
       {
         id: 202,
         label: "Users",
-        icon: <FileCog className="w-5 h-5" />,
+        icon: <Users className="w-5 h-5" />,
         to: "/account-setting/users",
       },
       {
         id: 202,
         label: "Account Settings",
-        icon: <FileCog className="w-5 h-5" />,
+        icon: <Settings className="w-5 h-5" />,
         to: "/account-setting/settings",
       },
     ],
@@ -93,25 +100,25 @@ const sidenav = [
   {
     id: 3,
     label: "Finance",
-    icon: <User className="w-5 h-5" />,
+    icon: <Receipt className="w-5 h-5" />,
     sub: true,
     childs: [
       {
         id: 301,
         label: "Account Statements",
-        icon: <CopyPlus className="w-5 h-5" />,
+        icon: <FileBarChart2 className="w-5 h-5" />,
         to: "/finance/account-statements",
       },
       {
         id: 302,
         label: "Order Overview",
-        icon: <FileCog className="w-5 h-5" />,
+        icon: <GanttChartSquare className="w-5 h-5" />,
         to: "/finance/order-overview",
       },
       {
         id: 302,
         label: "Transaction Overview",
-        icon: <FileCog className="w-5 h-5" />,
+        icon: <FolderKanban  className="w-5 h-5" />,
         to: "/finance/transaction-overview",
       },
     ],
@@ -125,13 +132,13 @@ const sidenav = [
       {
         id: 401,
         label: "Manage Orders",
-        icon: <CopyPlus className="w-5 h-5" />,
+        icon: <ListTree className="w-5 h-5" />,
         to: "/order-reviews/orders",
       },
       {
         id: 202,
         label: "Manage Reviews",
-        icon: <FileCog className="w-5 h-5" />,
+        icon: <MessageSquareDashed className="w-5 h-5" />,
         to: "/order-reviews/reviews",
       },
     ],

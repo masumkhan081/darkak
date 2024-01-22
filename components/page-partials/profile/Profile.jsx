@@ -22,23 +22,23 @@ export default function Profile() {
   const currentSubTab = useSelector((state) => state.profile.currentSubTab);
 
   const stylActSubTab = (tabText) =>
-    currentSubTab === tabText ? " border border-tl-5   " : "   ";
+    currentSubTab === tabText ? " border border-tl3   " : "   ";
   const stylActTab = (tabText) =>
-    currentTab === tabText ? " border border-tl-5" : "  ";
+    currentTab === tabText ? " border border-tl4" : "  ";
 
   return (
-    <div className=" flex flex-col gap-1.5 p-0.75 overflow-y-scroll">
+    <div className="w-[80vw] h-[90vh] flex flex-col gap-1.5 p-0.75 overflow-y-scroll  ">
       {/* <span>{JSON.stringify(tabMap[currentTab])}</span> */}
-      <div className="shadow rounded-md bg-deep-3">
+      <div className="shadow rounded-md bg-tl2">
         <div className="flex gap-2  shadow rounded p-0.5 font-sans ">
           {Object.keys(tabMap).map((tab) => {
             return (
               <CustomButton
                 afterClick={() => dispatch(setCurrentTab({ currentTab: tab }))}
                 txt={tab}
-                style={` bg-tl1 shadow-sm ${stylActTab(
+                style={` shadow-sm ${stylActTab(
                   tab
-                )} px-1 rounded-md py-0.12 text-base`}
+                )} px-2 hover:border-b border-tl4 hover:rounded-none rounded py-0.12 text-blck text-base`}
               />
             );
           })}
@@ -51,7 +51,7 @@ export default function Profile() {
                 afterClick={() =>
                   dispatch(setCurrentSubTab({ currentSubTab: tab }))
                 }
-                style={`bg-deep-0 px-0.5 rounded-md py-0.12 text-sm ${stylActSubTab(
+                style={` px-0.5 hover:border-b hover:rounded-none border-tl4 rounded py-0.12 text-slate-800 text-sm ${stylActSubTab(
                   tab
                 )}`}
               />
@@ -60,7 +60,7 @@ export default function Profile() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-1.0  p-1.5  bg-deep-3 rounded-md">
+      <div className="flex flex-col gap-1.0  p-1.5  bg-deep-3 rounded-md  ">
         <EnhancedText kind={"two"}>{currentSubTab}</EnhancedText>
         {currentSubTab == "Seller Account" && <SellerAccount />}
         {currentSubTab == "Business Information" && <BusinessInfo />}

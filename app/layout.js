@@ -10,7 +10,7 @@ export const metadata = {
 export default function layout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-deep-1  w-[100vw] h-[100vh]">
+      <body className="bg-deep-1  w-full ">
         <Provider>
           <RootLayout content={children} />
         </Provider>

@@ -6,7 +6,7 @@ import React, { useState } from "react";
 export default function PaymentAcc() {
   const [selectedPaymentWay, setPaymentWay] = useState({ id: null, title: "" });
   return (
-    <div className="flex flex-col gap-3 px-2 w-3/4">
+    <div className="flex flex-col gap-3 px-2 w-3/4 h-full ">
       <div className="flex flex-col gap-2">
         <CustomSelect
           label="Select Payment System"

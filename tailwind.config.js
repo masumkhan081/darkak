@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -65,6 +65,7 @@ module.exports = {
         "44.0": "44rem",
       },
       fontFamily: {
+        "Roboto_C":["Roboto Condensed"],
         poppins: ["Poppins", "sans-serif"],
         jakarta: ["Plus Jakarta Sans"],
         sora: ["Sora"],
