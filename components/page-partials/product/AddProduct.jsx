@@ -25,6 +25,7 @@ import {
 import React, { useState } from "react";
 import { categories, subCategories } from "@/static-data/product-categories";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function AddProduct({ actOn, useForEdit }) {
   const initSelect = {
@@ -83,9 +84,26 @@ export default function AddProduct({ actOn, useForEdit }) {
       ...variants.slice(index, variants.length),
     ]);
   }
+  const dispatch = useDispatch();
+  const currentTab = useSelector((state) => state.profile.currentTab);
+  const currentSubTab = useSelector((state) => state.profile.currentSubTab);
 
+  const isSideNavFolded = useSelector((state) => state.navView.isSideNavFolded);
+  const isSideNavVisible = useSelector(
+    (state) => state.navView.isSideNavVisible
+  );
+  const getRightSideWidth = () =>
+    isSideNavVisible
+      ? isSideNavFolded
+        ? "w-[95vw] "
+        : "w-[80vw]"
+      : "w-[100vw]";
+
+  //
   return (
-    <div className=" p-1.0 bg-wh flex flex-col gap-3">
+    <div
+      className={` ${getRightSideWidth()} p-1.0 bg-wh flex flex-col h-full gap-1.5  overflow-y-scroll  `}
+    >
       {/* start --  variants and stock */}
       <div className="border border-slate-300 rounded-md flex flex-col gap-1.5 ">
         <EnhancedText
