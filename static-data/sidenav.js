@@ -41,6 +41,8 @@ import {
   GanttChartSquare,
   MessageSquareDashed,
   ListTree,
+  Framer,
+  TableProperties,
 } from "lucide-react";
 
 const sidenav = [
@@ -69,6 +71,72 @@ const sidenav = [
         icon: <FileCog className="w-5 h-5" />,
         to: "/products",
       },
+
+      {
+        id: 1201,
+        label: "New Campaign",
+        icon: <Framer className="w-5 h-5" />,
+        to: "/products/add-campaign",
+      },
+      {
+        id: 1201,
+        label: "Manage Compaigns",
+        icon: <TableProperties className="w-5 h-5" />,
+        to: "/products/campaigns",
+      },
+    ],
+  },
+  {
+    id: 4,
+    label: "Order & Reviews",
+    icon: <Package className="w-5 h-5" />,
+    sub: true,
+    childs: [
+      {
+        id: 401,
+        label: "Manage Orders",
+        icon: <ListTree className="w-5 h-5" />,
+        to: "/order-reviews/orders",
+      },
+      {
+        id: 402,
+        label: "Manage Reviews",
+        icon: <MessageSquareDashed className="w-5 h-5" />,
+        to: "/order-reviews/reviews",
+      },
+      {
+        id: 403,
+        label: "Customer Returns",
+        icon: <Undo2 className="w-5 h-5" />,
+        to: "/order-reviews/customer-return",
+      },
+    ],
+  },
+
+  {
+    id: 3,
+    label: "Finance",
+    icon: <Receipt className="w-5 h-5" />,
+    sub: true,
+    childs: [
+      {
+        id: 301,
+        label: "Account Statements",
+        icon: <FileBarChart2 className="w-5 h-5" />,
+        to: "/finance/account-statements",
+      },
+      {
+        id: 302,
+        label: "Order Overview",
+        icon: <GanttChartSquare className="w-5 h-5" />,
+        to: "/finance/order-overview",
+      },
+      {
+        id: 302,
+        label: "Transaction Overview",
+        icon: <FolderKanban className="w-5 h-5" />,
+        to: "/finance/transaction-overview",
+      },
     ],
   },
   {
@@ -91,58 +159,13 @@ const sidenav = [
       },
       {
         id: 202,
-        label: "Account Settings",
+        label: "Settings",
         icon: <Settings className="w-5 h-5" />,
         to: "/account-setting/settings",
       },
     ],
   },
-  {
-    id: 3,
-    label: "Finance",
-    icon: <Receipt className="w-5 h-5" />,
-    sub: true,
-    childs: [
-      {
-        id: 301,
-        label: "Account Statements",
-        icon: <FileBarChart2 className="w-5 h-5" />,
-        to: "/finance/account-statements",
-      },
-      {
-        id: 302,
-        label: "Order Overview",
-        icon: <GanttChartSquare className="w-5 h-5" />,
-        to: "/finance/order-overview",
-      },
-      {
-        id: 302,
-        label: "Transaction Overview",
-        icon: <FolderKanban  className="w-5 h-5" />,
-        to: "/finance/transaction-overview",
-      },
-    ],
-  },
-  {
-    id: 4,
-    label: "Order & Reviews",
-    icon: <Package className="w-5 h-5" />,
-    sub: true,
-    childs: [
-      {
-        id: 401,
-        label: "Manage Orders",
-        icon: <ListTree className="w-5 h-5" />,
-        to: "/order-reviews/orders",
-      },
-      {
-        id: 202,
-        label: "Manage Reviews",
-        icon: <MessageSquareDashed className="w-5 h-5" />,
-        to: "/order-reviews/reviews",
-      },
-    ],
-  },
+
   /*
   {
     id: 5,
