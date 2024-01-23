@@ -6,7 +6,7 @@ import React, { useState } from "react";
 export default function PaymentAcc() {
   const [selectedPaymentWay, setPaymentWay] = useState({ id: null, title: "" });
   return (
-    <div className="flex flex-col gap-3 px-2 w-3/4 h-full ">
+    <div className="flex flex-col gap-3 px-2  h-full ">
       <div className="flex flex-col gap-2">
         <CustomSelect
           label="Select Payment System"
@@ -98,8 +98,12 @@ export default function PaymentAcc() {
           </div>
         </div>
       )}
-      {selectedPaymentWay.tile == "Mobile" && (
+      {selectedPaymentWay.title == "Mobile" && (
         <div className="flex flex-col gap-2 ">
+
+
+
+
           <div className="grid sm:grid-cols-2 grid-cols-1 gap-1.5">
             <div className="flex flex-col gap-2">
               <label>Bkash Number</label>

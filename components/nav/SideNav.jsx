@@ -18,16 +18,23 @@ export default function SideNav() {
     (state) => state.navView.isSideNavVisible
   );
 
- 
+  const getSideNavWidth = () =>
+    isSideNavVisible
+      ? isSideNavFolded
+        ? "  w-[5vw] "
+        : "  w-[20vw]"
+      : "hidden";
+
+  const visibilityControl = () => (isSideNavVisible ? "block   " : "hidden");
+
   const widthControlBrand = () => (isSideNavFolded ? "text-xs  " : "text-xl");
   const expansionStatus = (key) => (expansion[key] ? " block" : " hidden");
 
   const [topSpace, setTopSpace] = useState(0);
-
   const adjustTop = () => "top-[100px]";
 
   return (
-    <div className="  bg-tl1 h-full w-full ">
+    <div className={` ${getSideNavWidth()} bg-tl-1 h-[100vh] `}>
       <div className="  py-0.125 sm:flex hidden  rounded-sm  w-full  justify-center items-center h-[10vh] ">
         {/* <Image src={brand} className="w-7.0 h-4.0  overflow-hidden" /> */}
         <span
@@ -37,7 +44,7 @@ export default function SideNav() {
         </span>
       </div>
 
-      <ul className="flex-grow h-[84vh] bg-tl1 bg-opacity-80 px-1 py-1.0 flex flex-col justify-start gap-4 overflow-y-scroll overflow-x-hidden">
+      <ul className="flex-grow h-[84vh] bg-tl-1 bg-opacity-80 px-1 py-1.0 flex flex-col justify-start gap-4 overflow-y-scroll overflow-x-hidden">
         {sidenav.map((navItem) => {
           return (
             <li className="flex flex-col w-full  " key={navItem.id}>
@@ -72,7 +79,7 @@ export default function SideNav() {
 
               {navItem.sub && (
                 <ul
-                  className={`bg-tl2 rounded px-1 py-3 space-y-2 w-full  ${expansionStatus(
+                  className={`bg-tl1 rounded px-1 py-3 space-y-2 w-full  ${expansionStatus(
                     navItem.label
                   )}`}
                 >

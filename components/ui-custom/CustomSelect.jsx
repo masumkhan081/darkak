@@ -29,7 +29,7 @@ const CustomSelect = ({ options, value, onChange, bg, ph, icon, label, w }) => {
   };
 
   return (
-    <div className="relative h-full" ref={dropdownRef}>
+    <div className="relative w-full h-full" ref={dropdownRef}>
       <div
         className={`py-1 px-0.25 ${w} h-full border border-slate-300 rounded-md capitalize cursor-pointer flex justify-between items-center ${styles[bg]}`}
         onClick={toggleDropdown}

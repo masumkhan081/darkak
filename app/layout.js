@@ -10,7 +10,7 @@ export const metadata = {
 export default function layout({ children }) {
   return (
     <html lang="en">
-      <body className="w-full h-screen">
+      <body className="w-full h-screen  ">
         <Provider>
           <RootLayout content={children} />
         </Provider>

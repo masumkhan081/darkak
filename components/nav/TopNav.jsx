@@ -18,7 +18,8 @@ export default function TopNav() {
   const isProfileModalOpen = useSelector(
     (state) => state.navView.isProfileModalOpen
   );
-
+  const isSideNavFolded = useSelector((state) => state.navView.isSideNavFolded);
+  const expansion = useSelector((state) => state.navView.expansion);
   const isSideNavVisible = useSelector(
     (state) => state.navView.isSideNavVisible
   );
@@ -39,10 +40,17 @@ export default function TopNav() {
     };
   }, []);
 
+  const getRightSideWidth = () =>
+    isSideNavVisible
+      ? isSideNavFolded
+        ? "w-[95vw] "
+        : "w-[80vw]"
+      : "w-[100vw]";
+
   return (
     <div
       style={{ position: "-webkit-sticky", position: "sticky", top: 0 }}
-      className=" h-full w-full  bg-tl1  rounded-b flex justify-between items-center  px-1.0 py-1    "
+      className={` ${getRightSideWidth()} bg-tl-1  rounded-b-sm flex justify-between items-center  px-1.0 py-1    `}
     >
       <div className="flex flex-col gap-1 items-start">
         <CustomButton
@@ -59,7 +67,7 @@ export default function TopNav() {
 
       <p className="flex gap-2 items-center font-inter">
         <span>
-          Hi, <b>omuk !</b>
+          Hi, <b>UserName!</b>
         </span>
 
         <CustomButton

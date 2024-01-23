@@ -24,16 +24,29 @@ export default function Profile() {
   const stylActSubTab = (tabText) =>
     currentSubTab === tabText ? " border border-tl3   " : "   ";
   const stylActTab = (tabText) =>
-    currentTab === tabText ? " border border-tl4" : "  ";
+    currentTab === tabText ? " border border-tl4" : "  "; 
+
+    const isSideNavFolded = useSelector((state) => state.navView.isSideNavFolded); 
+    const isSideNavVisible = useSelector(
+      (state) => state.navView.isSideNavVisible
+    ); 
+    const getRightSideWidth = () =>
+      isSideNavVisible
+        ? isSideNavFolded
+          ? "w-[95vw] "
+          : "w-[80vw]"
+        : "w-[100vw]";
+
 
   return (
-    <div className="w-full h-full flex flex-col gap-1.5 p-0.75 overflow-y-scroll  ">
+    <div className={` ${getRightSideWidth()} h-full flex flex-col gap-1.5 p-0.75 overflow-y-scroll  `}>
       {/* <span>{JSON.stringify(tabMap[currentTab])}</span> */}
-      <div className="shadow rounded-md bg-tl2">
+      <div className="shadow rounded bg-tl-1">
         <div className="flex gap-2  shadow rounded p-0.5 font-sans ">
-          {Object.keys(tabMap).map((tab) => {
+          {Object.keys(tabMap).map((tab, ind) => {
             return (
               <CustomButton
+                key={ind}
                 afterClick={() => dispatch(setCurrentTab({ currentTab: tab }))}
                 txt={tab}
                 style={` shadow-sm ${stylActTab(
@@ -43,10 +56,11 @@ export default function Profile() {
             );
           })}
         </div>
-        <div className="flex py-0.38 gap-2 justify-center px-0.5 shadow bg-tl1 rounded-md">
-          {tabMap[currentTab].map((tab) => {
+        <div className="flex py-0.38 gap-2 justify-center px-0.5 shadow bg-pantone1 rounded-md">
+          {tabMap[currentTab].map((tab, ind) => {
             return (
               <CustomButton
+                key={ind}
                 txt={tab}
                 afterClick={() =>
                   dispatch(setCurrentSubTab({ currentSubTab: tab }))

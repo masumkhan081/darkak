@@ -9,37 +9,24 @@ import { usePathname } from "next/navigation";
 import ProtectedRoute from "@/components/route/ProtectedRoute";
 //
 export default function RootLayout({ content }) {
-  const dispatch = useDispatch();
-  const isSideNavFolded = useSelector((state) => state.navView.isSideNavFolded);
-  const expansion = useSelector((state) => state.navView.expansion);
-  const isSideNavVisible = useSelector(
-    (state) => state.navView.isSideNavVisible
-  );
-
-  const getSideNavWidth = () => (isSideNavFolded ? "w-[5vw] " : "w-[20vw]");
-  const visibilityControl = () => (isSideNavVisible ? "block   " : "hidden");
-  //
-  const getRightSideWidth = () => (isSideNavFolded ? "w-[95vw] " : "w-[80vw]");
-
-  // const visibilityControl = () => (isSideNavVisible ? "block   " : "hidden");
-
   const path = usePathname();
-  return path.endsWith("login") === false ? (
-    // <ProtectedRoute>
-    <div className="  w-[100vw] h-[100vh] brdr">
-      <div className={` ${getSideNavWidth()} ${visibilityControl()} h-full`}>
-        <SideNav />
-      </div>
+  return (
+    <div className="   ">
+      {path.endsWith("login") === false && (
+        //  <ProtectedRoute>
+        <div className="flex w-[100vw]">
+          <SideNav />
 
-      <div className={` w-[95vw]  flex flex-col gap-0 brdr`}>
-        <div className="w-full h-[10vh]">
-          <TopNav />
+          <div className=" flex flex-col  ">
+            <TopNav />
+            {content}
+          </div>
         </div>
-        <div className="w-full h-[90vh]">{content}</div>
-      </div>
+        // </ProtectedRoute>
+      )}
+      {path.endsWith("login") === true && (
+        <div className="h-[100vh] w-[100vw]">{content}</div>
+      )}
     </div>
-  ) : (
-    // </ProtectedRoute>
-    <div className="w-[100vw] h-[100vh]  brdr">{content}</div>
   );
 }
