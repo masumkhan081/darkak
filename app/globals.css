@@ -51,10 +51,10 @@
   @apply col-span-2 flex items-center ps-2 rounded border border-tl-2 h-full;
 }
 .txt_span5 {
-  @apply col-span-5  h-full py-0.25 bg-deep-3 px-2 outline-none rounded border border-tl-1 focus:border-tl-2;
+  @apply col-span-5  h-full py-0.38 lg:text-base text-lg bg-deep-3 px-2 outline-none rounded border border-tl-1 focus:border-tl-2;
 }
 .div_span7_fieldgroup {
-  @apply grid grid-cols-7  gap-2 h-[5vh] items-center rounded-md;
+  @apply grid grid-cols-7  gap-2 h-[4vh] items-center rounded-md;
 }
 .lbl_span3 {
   @apply col-span-3 flex items-center ps-2 rounded border border-tl-2 h-full;

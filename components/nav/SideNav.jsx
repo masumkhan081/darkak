@@ -18,13 +18,8 @@ export default function SideNav() {
     (state) => state.navView.isSideNavVisible
   );
 
-  const cmn_icn_class = "w-7 h-7 rounded-full border border-red-400";
-  const widthControl = () =>
-    isSideNavFolded ? "w-4.0 flex flex-col justify-between gap-4 " : "w-[20vw]";
-  const visibilityControl = () =>
-    isSideNavVisible ? "block flex  flex-col justify-between  " : "hidden";
-    const widthControlBrand = () =>
-    isSideNavFolded ? "text-xs  " : "text-xl";
+ 
+  const widthControlBrand = () => (isSideNavFolded ? "text-xs  " : "text-xl");
   const expansionStatus = (key) => (expansion[key] ? " block" : " hidden");
 
   const [topSpace, setTopSpace] = useState(0);
@@ -32,12 +27,12 @@ export default function SideNav() {
   const adjustTop = () => "top-[100px]";
 
   return (
-    <div
-      className={` ${widthControl()} ${visibilityControl()}  bg-tl1  h-[100vh] max-h-[100vh]  `}
-    >
+    <div className="  bg-tl1 h-full w-full ">
       <div className="  py-0.125 sm:flex hidden  rounded-sm  w-full  justify-center items-center h-[10vh] ">
         {/* <Image src={brand} className="w-7.0 h-4.0  overflow-hidden" /> */}
-        <span className={` ${widthControlBrand()} font-semibold font-mono drop-shadow-md`}>
+        <span
+          className={` ${widthControlBrand()} font-semibold font-mono drop-shadow-md`}
+        >
           Darkak
         </span>
       </div>
@@ -67,7 +62,9 @@ export default function SideNav() {
                 {!isSideNavFolded && navItem.sub && (
                   <ChevronRight
                     className={
-                      expansion[navItem.label] ? "rotate-90 w-5 h-5 text-slate-950" : "rotate-0 text-sl/500  w-5 h-5"
+                      expansion[navItem.label]
+                        ? "rotate-90 w-5 h-5 text-slate-950"
+                        : "rotate-0 text-sl/500  w-5 h-5"
                     }
                   />
                 )}
@@ -88,9 +85,7 @@ export default function SideNav() {
                         >
                           {item.icon}
                           {!isSideNavFolded && (
-                            <span className="flex-grow ">
-                              {item.label}
-                            </span>
+                            <span className="flex-grow ">{item.label}</span>
                           )}
                         </Link>
                       </li>

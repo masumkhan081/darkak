@@ -42,7 +42,7 @@ export default function TopNav() {
   return (
     <div
       style={{ position: "-webkit-sticky", position: "sticky", top: 0 }}
-      className="  w-[80vw] h-[10vh]  bg-tl1  rounded-b-md flex justify-between items-center  px-1.0 py-1    "
+      className=" h-full w-full  bg-tl1  rounded-b flex justify-between items-center  px-1.0 py-1    "
     >
       <div className="flex flex-col gap-1 items-start">
         <CustomButton

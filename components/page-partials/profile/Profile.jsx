@@ -27,7 +27,7 @@ export default function Profile() {
     currentTab === tabText ? " border border-tl4" : "  ";
 
   return (
-    <div className="w-[80vw] h-[90vh] flex flex-col gap-1.5 p-0.75 overflow-y-scroll  ">
+    <div className="w-full h-full flex flex-col gap-1.5 p-0.75 overflow-y-scroll  ">
       {/* <span>{JSON.stringify(tabMap[currentTab])}</span> */}
       <div className="shadow rounded-md bg-tl2">
         <div className="flex gap-2  shadow rounded p-0.5 font-sans ">
