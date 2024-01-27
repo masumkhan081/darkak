@@ -7,6 +7,7 @@ import DropDown from "@/components/ui-custom/DropDown";
 import EnhancedText from "@/components/ui-custom/EnhancedText";
 import productGroups from "@/static-data/product-groups";
 import { warrantyDurations, warrantyTypes } from "@/static-data/warrenties";
+import { brands } from "@/static-data/brands";
 import { colorList, sizeList } from "@/static-data/product-variants";
 import { tblHeaderVariants } from "@/static-data/table-headers";
 import {
@@ -33,6 +34,8 @@ export default function AddProduct({ actOn, useForEdit }) {
     id: null,
     title: "",
   };
+
+  const [selectedBrand, setBrand] = useState(initSelect);
   const [selectedCat, setCat] = useState(initSelect);
   const [selectedSubCat, setSubCat] = useState(initSelect);
   const [selectedWarranty, setSelectedWarranty] = useState(initSelect);
@@ -151,8 +154,17 @@ export default function AddProduct({ actOn, useForEdit }) {
 
           <div className="grid grid-cols-2 md:gap-1.0 gap-0.5">
             <div className="col-span-1 flex flex-col gap-1  ">
-              <span className="text-pr/600">Brand Name</span>
-              <CustomInput ph="Enter brand name" />
+              <span className="text-pr/600">
+                Select Brand<span className="mx-1 text-red-600">*</span>
+              </span>
+              <DropDown
+                onChange={(selected) => {
+                  setBrand(selected);
+                }}
+                value={selectedBrand}
+                options={brands}
+                ph={"sub-category"}
+              />
             </div>
           </div>
           <div className="grid grid-cols-2 md:gap-1.0 gap-0.5">
