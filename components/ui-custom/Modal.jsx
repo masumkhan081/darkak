@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 // import { imgMap } from "@/static-data/products";
 
- import prdImage from "@/public/products/1.jpg";
+import prdImage from "@/public/products/1.jpg";
 // import prdImage2 from "@/public/products/2.jpg";
 // import prdImage3 from "@/public/products/3.webp";
 // import prdImage4 from "@/public/products/4.webp";
@@ -37,8 +37,8 @@ import React from "react";
 
 export default function Modal(imgId, close) {
   return (
-    <div>
-      <Image width={"200px"} height={"320px"} src={prdImage} />
+    <div className=" ">
+      <Image width={"220px"} height={"280px"} src={prdImage} />
     </div>
   );
 }

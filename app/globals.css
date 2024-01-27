@@ -98,5 +98,5 @@
   @apply border border-black;
 }
 .nav_drop_down {
-  @apply block absolute z-10 top-[50%] left-[50%]   h-auto border rounded-md bg-green-200 border-yellow-600;
+  @apply block absolute z-10 top-[50%] left-[50%]    border rounded-md bg-green-200 border-yellow-600;
 }

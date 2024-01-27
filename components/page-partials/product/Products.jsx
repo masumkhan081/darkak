@@ -15,6 +15,7 @@ import {
   Circle,
   ImagePlus,
   Info,
+  InfoIcon,
   List,
   Trash2,
   Video,
@@ -95,7 +96,7 @@ export default function Products({ actOn, useForEdit }) {
           kind={"two"}
           color="text-pr/400 px-0.75 py-0.25   rounded-md  "
         >
-          Products Management {modalImage}
+          Products Management
         </EnhancedText>
 
         <div className="w-[100%] lg:w-[100%] xl:w-[90%] 2xl:w-[80%] flex flex-col gap-1.0 px-2">
@@ -119,10 +120,10 @@ export default function Products({ actOn, useForEdit }) {
 
           <div class="flex w-full  flex-col gap-0.5 max-h-[360px]  ">
             {prodTypes["Online"] && (
-              <div className="flex flex-col items-start justify-between px-2 py-1 shadow shadow-orange-300 w-fit rounded-md">
+              <div className="flex flex-col min-w-[250px] items-start justify-between px-2 py-1 shadow shadow-orange-300 w-fit rounded-md">
                 <p className="flex gap-1 items-center justify-start  ">
                   <List className="w-5 h-5 text-red-900" />
-                  <span className="font-medium font-inter text-base">
+                  <span className="flex-grow text-center font-medium font-inter text-base">
                     Selling Items ({filteredProducts.length})
                   </span>
                 </p>
@@ -132,7 +133,7 @@ export default function Products({ actOn, useForEdit }) {
               </div>
             )}
             {prodTypes["In Progress"] && (
-              <div className="flex flex-col items-start justify-between px-2 py-1 shadow shadow-orange-300 w-fit rounded-md">
+              <div className="flex flex-col items-start min-w-[250px] justify-between px-2 py-1 shadow shadow-orange-300 w-fit rounded-md">
                 <p className="flex gap-1 items-center justify-start  ">
                   <List className="w-5 h-5 text-red-900" />
                   <span className="font-medium font-inter text-base">
@@ -146,7 +147,7 @@ export default function Products({ actOn, useForEdit }) {
             )}
 
             {prodTypes["Offline"] && (
-              <div className="flex flex-col items-start px-2 py-1 shadow shadow-orange-300 w-fit rounded-md">
+              <div className="flex flex-col items-start min-w-[250px] px-2 py-1 shadow shadow-orange-300 w-fit rounded-md">
                 <p className="flex gap-1 items-center justify-start  ">
                   <Trash2 className="w-5 h-5 text-red-900" />
                   <span className="font-medium font-inter text-base">
@@ -202,8 +203,11 @@ export default function Products({ actOn, useForEdit }) {
                                 className=" "
                               />
                               <p className="flex flex-col gap-2 items-start">
-                                <span className="font-medium"> {prdct.pn}</span>
-                                <span className="text-sm font-normal text-slate-500">
+                                <span className="font-medium whitespace-pre-wrap text-start">
+                                  {" "}
+                                  {prdct.pn}
+                                </span>
+                                <span className="text-sm  font-normal text-slate-500">
                                   {prdct.id}
                                 </span>
                               </p>
@@ -222,7 +226,7 @@ export default function Products({ actOn, useForEdit }) {
                           <td class="text-center px-4 py-1 max-w-[120px]">
                             <CustomButton
                               startIcon={
-                                <X className="  w-6 h-6 text-slate-600  " />
+                                <InfoIcon className="  w-6 h-6 text-slate-600  " />
                               }
                               style="w-full flex justify-center items-center  "
                             ></CustomButton>
@@ -238,14 +242,11 @@ export default function Products({ actOn, useForEdit }) {
         </div>
       </div>
 
-      <form className="flex flex-col gap-4 text-sm my-4">
-        <CustomButton
-          startIcon={<CheckCheck className="w-4 h-4 mr-1" />}
-          txt={"Submit"}
-          style="bg-blue-900 text-wh px-0.75 text-sm font-semibold  py-0.25 rounded-md w-fit "
-        />
-      </form>
-      <div className={imgModalShowing ? "nav_drop_down" : `hidden`}>
+      <div
+        className={
+          imgModalShowing ? "nav_drop_down  w-[170px] h-[220px]" : `hidden`
+        }
+      >
         <Modal imgId={modalImage} close={() => setImgModal(false)} />
       </div>
     </div>

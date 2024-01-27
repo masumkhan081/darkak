@@ -60,7 +60,7 @@ export const products = [
     image: imgMap[5],
   },
   {
-    id: 3,
+    id: "drty1123",
     pn: "Panjabi ",
     ln: "ln - In Progress",
     color: "black",
@@ -72,7 +72,7 @@ export const products = [
     image: imgMap[6],
   },
   {
-    id: 4,
+    id: "drty1123",
     pn: "Panjabi ",
     ln: "ln In Progress",
     color: "black",
@@ -84,7 +84,7 @@ export const products = [
     image: imgMap[7],
   },
   {
-    id: 5,
+    id: "drty1123",
     pn: "i am long name to see text overflow overflow overflow",
     ln: "ln- online",
     color: "black",
@@ -96,7 +96,7 @@ export const products = [
     image: imgMap[8],
   },
   {
-    id: 6,
+    id: "drty1123",
     pn: "Panjabi ",
     ln: "ln- online",
     color: "black",
