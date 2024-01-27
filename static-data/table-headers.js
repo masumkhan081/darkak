@@ -2,6 +2,14 @@ const tHeadPermission = ["Permission", "Create", "Edit", "View", "Delete"];
 
 const tHeadRoles = ["Roles", "Permissions", "Actions"];
 
+export const tblHeaderProducts = [
+  "Product Name",
+  "Local Name",
+  "Price",
+  "Stock",
+  "Action",
+];
+
 export const tblHeaderVariants = [
   "Ser.",
   "Color",

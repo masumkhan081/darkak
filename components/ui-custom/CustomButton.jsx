@@ -10,7 +10,14 @@ export default function CustomButton({
   endIcon,
 }) {
   return (
-    <button id={id} className={`flex justify-center items-center  ${style} `} onClick={afterClick} onMouseOver={afterHover}>
+    <button
+      id={id}
+      className={
+        style ? style : `flex justify-center items-center border py-0.12 px-2 `
+      }
+      onClick={afterClick}
+      onMouseOver={afterHover}
+    >
       {startIcon}
       {txt}
       {endIcon}

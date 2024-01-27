@@ -210,9 +210,9 @@ export default function AddProduct({ actOn, useForEdit }) {
                             setVariants([...variants, initVariant])
                           }
                           startIcon={
-                            <Plus className="  w-6 h-6 text-slate-600 " />
+                            <Plus className="  w-6 h-6 text-wh " />
                           }
-                          style="min-w-[50px] w-full flex justify-center items-center px-3 py-1 rounded-md  border border-pr/400"
+                          style="min-w-[50px] w-full flex justify-center items-center px-3 py-1 rounded-md bg-pr/400   border border-pr/400"
                         ></CustomButton>
                       </td>
                     </tr>
