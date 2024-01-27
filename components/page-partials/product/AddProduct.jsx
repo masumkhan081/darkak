@@ -113,8 +113,8 @@ export default function AddProduct({ actOn, useForEdit }) {
           Variants And Stock
         </EnhancedText>
 
-        <div className="flex flex-col gap-2">
-          <div className="flex gap-2 justify-start px-1 font-sans  max-h-[28px]">
+        <div className="w-[100%] lg:w-[100%] xl:w-[90%] 2xl:w-[80%] flex flex-col gap-2">
+          <div className="min-w-[380px] flex gap-2 justify-start px-1 font-sans  max-h-[28px]">
             <div className="w-10.0 font-inter ">
               <CustomInput
                 label={"Quantity"}
@@ -136,90 +136,90 @@ export default function AddProduct({ actOn, useForEdit }) {
               />
             </div>
           </div>
-
-          <div className=" w-full  border rounded-md border-slate-200 px-1 overflow-y-scroll max-h-[16rem] min-h-[15rem]">
-            <table className=" w-full h-full relative ">
-              <thead className="w-full sticky top-0 z-10 rounded-md">
-                <tr className="tr_thead rounded-md ">
-                  <th className="th bg-pr/400 drop-shadow text-wh text-base rounded-l-full">
-                    {tblHeaderVariants[0]}
-                  </th>
-                  <th className="th bg-pr/400 drop-shadow-md text-wh w-9.0 text-base">
-                    {tblHeaderVariants[1]}
-                  </th>
-                  <th className="th bg-pr/400 drop-shadow text-wh w-9.0 text-base">
-                    {tblHeaderVariants[2]}
-                  </th>
-                  <th className="th bg-pr/400 drop-shadow text-wh w-8.0 text-base">
-                    {tblHeaderVariants[3]}
-                  </th>
-                  <th className="th bg-pr/400 drop-shadow text-wh w-8.0 text-base">
-                    {tblHeaderVariants[4]}
-                  </th>
-                  <th className="th bg-pr/400 drop-shadow text-wh w-8.0 text-base rounded-r-full">
-                    {tblHeaderVariants[5]}
-                  </th>
-                </tr>
-              </thead>
-
-              <tbody className="w-full bg-wh py-1">
-                {variants.map((variant, ind) => {
-                  return (
-                    <tr className="tr_tbody h-[28px]">
-                      <td className="td w-5.0 max-w-5.0  ">
-                        <p className="border bg-pr/400 text-slate-200  font-bold h-full rounded-md flex justify-center items-center">
-                          {ind + 1}
-                        </p>
-                      </td>
-                      <td className="td">
-                        <CustomSelect
-                          onChange={(selected) =>
-                            handleInput({ selected, key: "color", index: ind })
-                          }
-                          options={colorList}
-                          w="w-8.0"
-                          value={initSelect}
-                        />
-                      </td>
-                      <td className="td">
-                        <CustomSelect options={sizeList} w="w-8.0" />
-                      </td>
-                      <td className="td  w-8.0">
-                        <CustomInput />
-                      </td>
-
-                      <td className="td w-8.0 ">
-                        <CustomInput />
-                      </td>
-                      <td className="td w-8.0">
+          <div class="flex w-full  flex-col max-h-[320px]  ">
+            <div class="inline-block w-full h-full  ">
+              <div class=" max-w-full h-full overflow-x-scroll  px-2 ">
+                <table class=" relative  w-auto max-w-full overflow-y-scroll  text-left text-sm font-light     ">
+                  <thead class="sticky top-0 z-10 border-b bg-slate-100 rounded-md font-medium border-neutral-500">
+                    <tr className="">
+                      <th scope="col" class="px-6 py-2 text-center">
+                        {tblHeaderVariants[0]}
+                      </th>
+                      <th scope="col" class="px-6 py-2 text-center w-[120px]">
+                        {tblHeaderVariants[1]}
+                      </th>
+                      <th scope="col" class="px-6 py-2 text-center w-[120px]">
+                        {tblHeaderVariants[2]}
+                      </th>
+                      <th scope="col" class="px-6 py-2 text-center w-[120px]">
+                        {tblHeaderVariants[3]}
+                      </th>
+                      <th scope="col" class="px-6 py-2 text-center w-[120px]">
+                        {tblHeaderVariants[4]}
+                      </th>
+                      <th scope="col" class="px-6 py-2 text-center w-[120px]">
+                        {tblHeaderVariants[5]}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="border-t     border-neutral-500">
+                    {variants.map((variant, ind) => {
+                      return (
+                        <tr class="   ">
+                          <td class="whitespace-nowrap px-4 py-1 font-bold text-pr/400 text-center ">
+                            {ind + 1}
+                          </td>
+                          <td class="whitespace-nowrap px-4 py-1 min-w-[120px]">
+                            <CustomSelect
+                              onChange={(selected) =>
+                                handleInput({
+                                  selected,
+                                  key: "color",
+                                  index: ind,
+                                })
+                              }
+                              options={colorList}
+                              w="w-full"
+                              value={initSelect}
+                            />
+                          </td>
+                          <td class="whitespace-nowrap px-4 py-1 min-w-[120px]">
+                            <CustomSelect options={sizeList} w="w-full" />
+                          </td>
+                          <td class="whitespace-nowrap px-4 py-1 max-w-[120px]">
+                            <CustomInput />
+                          </td>
+                          <td class="whitespace-nowrap px-4 py-1 max-w-[120px]">
+                            <CustomInput />
+                          </td>
+                          <td class="whitespace-nowrap px-4 py-1 max-w-[120px]">
+                            <CustomButton
+                              startIcon={
+                                <X className="  w-6 h-6 text-slate-600  " />
+                              }
+                              style="w-full flex justify-center items-center  "
+                            ></CustomButton>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                    <tr class="  flex justify-center">
+                      <td class="whitespace-nowrap my-2 min-w-[50px]">
                         <CustomButton
-                          startIcon={
-                            <X className="  w-6 h-6 text-slate-600  " />
+                          afterClick={() =>
+                            setVariants([...variants, initVariant])
                           }
-                          style="w-8.0  "
+                          startIcon={
+                            <Plus className="  w-6 h-6 text-slate-600 " />
+                          }
+                          style="min-w-[50px] w-full flex justify-center items-center px-3 py-1 rounded-md  border border-pr/400"
                         ></CustomButton>
                       </td>
                     </tr>
-                  );
-                })}
-                <tr className="mb-3">
-                  <td className="w-5.0 max-w-5.0   ">
-                    <CustomButton
-                      style={
-                        "w-full my-2 text-slate-200 rounded-md bg-pr/600 shadow shadow-pr/400 bg-gradient bg-gradient-to-b from-pr/400  px-1"
-                      }
-                      afterClick={() => {
-                        setVariants([...variants, initVariant]);
-                      }}
-                      startIcon={
-                        <Plus className="text-pr/600 p-0.12 w-8 h-8" />
-                      }
-                      txt={""}
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>

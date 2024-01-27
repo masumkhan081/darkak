@@ -1,0 +1,13 @@
+{{URL}}/api/question-contents?populate[question][populate]=*&filters[question_type][title][$eq]=MCQ
+
+{{URL}}/api/journey-map-question-contents?populate[question_content][populate]=*&filters[question_content][question_type][title][$eq]=MCQ&populate[learning_journey_lesson][populate][learning_journey_level][populate][learning_journey_unit][populate][0]=learning_journey&filters[learning_journey_lesson][learning_journey_level][learning_journey_unit][learning_journey][title][$eq]=Basic&filters[learning_journey_lesson][learning_journey_level][learning_journey_unit][title][$eq]=Unit 02&filters[learning_journey_lesson][learning_journey_level][title][$eq]=Level 01&filters[learning_journey_lesson][title][$eq]=Lesson 01
+
+
+
+{{URL}}/api/contents?filters[content_type][title][$eq]=MCQ&filters[id][$notIn]=33&filters[id][$notIn]=34
+
+
+{{URL}}/api/question-contents?populate[question][populate]=*&filters[question_type][title][$eq]=MCQ
+
+{{URL}}/api/learning-purposes?populate=icon
+post er shomoy query params diyen ?populate=icon
