@@ -49,6 +49,9 @@
 .txt_span6 {
   @apply col-span-6 text-center h-full py-0.38 lg:text-base text-lg bg-deep-3 px-2 outline-none rounded border focus:border-tl-2;
 }
+.txt_stl {
+  @apply   text-center h-full py-0.38 lg:text-base text-lg bg-deep-3 px-2 outline-none rounded border focus:border-tl-2;
+}
 .div_span12_fieldgroup {
   @apply grid grid-cols-12  gap-2 h-[6vh] items-center rounded-md;
 }

@@ -27,6 +27,11 @@ export default function WarehouseAdd() {
   const [fullName2, setFullName2] = useState("");
   const [address2, setAddress2] = useState("");
   const [contact2, setContact2] = useState("");
+  //
+  const [selectedDivision2, setDivision2] = useState(initSelection);
+  const [selectedCity2, setCity2] = useState(initSelection);
+  const [selectedPostCode2, setPostCode2] = useState(initSelection);
+  const [selectedCountry2, setCountry2] = useState(initSelection);
 
   function handleCheck(e) {
     setRetAddAsWarehAdd(e.target.checked);
@@ -34,6 +39,11 @@ export default function WarehouseAdd() {
       setFullName2(fullName);
       setAddress2(address);
       setContact2(address);
+
+      setDivision2(selectedDivision);
+      setCity2(selectedCity);
+      setPostCode2(setPostCode);
+      setCountry2(setCountry);
     }
   }
 
@@ -43,6 +53,12 @@ export default function WarehouseAdd() {
   useEffect(() => {
     setCity(initSelection);
   }, [selectedDivision]);
+  useEffect(() => {
+    setPostCode2(initSelection);
+  }, [selectedCity2]);
+  useEffect(() => {
+    setCity2(initSelection);
+  }, [selectedDivision2]);
 
   return (
     <div className="flex flex-col gap-[4vh] px-2 md:text-sm text-xl">
@@ -197,11 +213,11 @@ export default function WarehouseAdd() {
           <span className="lbl_span3 ">Country</span>
           <div className="col-span-6 h-full">
             <SelectionWithMark
-              value={selectedCountry}
+              value={selectedCountry2}
               options={countries}
               w="w-full"
               onChange={(value) =>
-                setCountry({ id: value.id, title: value.title })
+                setCountry2({ id: value.id, title: value.title })
               }
             />
           </div>
@@ -210,11 +226,11 @@ export default function WarehouseAdd() {
           <span className="lbl_span3">Division</span>
           <div className="col-span-6 h-full   ">
             <SelectionWithMark
-              value={selectedDivision}
+              value={selectedDivision2}
               options={divisions}
               w="w-full"
               onChange={(value) =>
-                setDivision({ id: value.id, title: value.title })
+                setDivision2({ id: value.id, title: value.title })
               }
             />
           </div>
@@ -223,11 +239,11 @@ export default function WarehouseAdd() {
           <span className="lbl_span3 ">City</span>
           <div className="col-span-6 h-full">
             <SelectionWithMark
-              value={selectedCity}
+              value={selectedCity2}
               options={citiesByDivision[selectedDivision.title]}
               w="w-full"
               onChange={(value) =>
-                setCity({ id: value.id, title: value.title })
+                setCity2({ id: value.id, title: value.title })
               }
             />
           </div>
@@ -236,11 +252,11 @@ export default function WarehouseAdd() {
           <span className="lbl_span3">Postcode</span>
           <div className="col-span-6 h-full">
             <SelectionWithMark
-              value={selectedPostCode}
+              value={selectedPostCode2}
               options={postCodes[selectedCity.title]}
               w="w-full"
               onChange={(value) =>
-                setPostCode({ id: value.id, title: value.title })
+                setPostCode2({ id: value.id, title: value.title })
               }
             />
           </div>
