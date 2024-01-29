@@ -1,16 +1,16 @@
-import { tabMap } from "@/static-data/tabs-profile-page";
+import {   tabsProfile } from "@/static-data/tabs-page";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const profileSlice = createSlice({
   name: "profile",
   initialState: {
-    currentTab: Object.keys(tabMap)[0],
-    currentSubTab: tabMap[Object.keys(tabMap)[0]][0],
+    currentTab: Object.keys(tabsProfile)[0],
+    currentSubTab: tabsProfile[Object.keys(tabsProfile)[0]][0],
   },
   reducers: {
     setCurrentTab: (state, action) => {
       state.currentTab = action.payload.currentTab;
-      state.currentSubTab = tabMap[action.payload.currentTab][0];
+      state.currentSubTab = tabsProfile[action.payload.currentTab][0];
     },
     setCurrentSubTab: (state, action) => {
       state.currentSubTab = action.payload.currentSubTab;

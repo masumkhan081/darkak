@@ -1,4 +1,4 @@
-import AddPayment from "@/components/page-partials/design/AddPayment";
+import AddPayment from "@/components/design/AddPayment";
 import React from "react";
 
 export default function page() {

@@ -1,5 +1,4 @@
 "use client";
-
 import CustomButton from "@/components/ui-custom/CustomButton";
 import CustomInput from "@/components/ui-custom/CustomInput";
 import CustomSelect from "@/components/ui-custom/CustomSelect";
@@ -13,12 +12,8 @@ import { tblHeaderVariants } from "@/static-data/table-headers";
 import {
   CheckCheck,
   ChevronsRight,
-  Delete,
-  Edit,
-  ImageMinus,
   ImagePlus,
   Info,
-  InfoIcon,
   Plus,
   Video,
   X,

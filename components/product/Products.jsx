@@ -162,7 +162,7 @@ export default function Products({ actOn, useForEdit }) {
 
             <div class="inline-block w-full h-full  ">
               <div class=" max-w-full h-full overflow-x-scroll    ">
-                <table class=" relative  w-auto max-w-full overflow-y-scroll  text-left text-sm font-light     ">
+                <table class=" relative  w-full max-w-full overflow-y-scroll  text-left text-sm font-light     ">
                   <thead class="sticky top-0 z-10 border-b bg-slate-100 rounded-md font-medium border-neutral-500">
                     <tr className="">
                       <th

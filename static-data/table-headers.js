@@ -32,6 +32,7 @@ const tHeadUser = [
   "Email",
   "Contact no.",
   "Role",
+  "Status",
   "Action",
 ];
 

@@ -6,7 +6,7 @@ import CustomInput from "../ui-custom/CustomInput";
 import CustomButton from "../ui-custom/CustomButton";
 import { User, Eye, Lock } from "lucide-react";
 import users from "../../static-data/users";
-import { setLoggedInUser } from "../../redux/slices/User";
+import { setLoggedInUser } from "../../redux/slices/Auth";
 import { useSelector, useDispatch } from "react-redux";
 import { redirect, useRouter } from "next/navigation";
 

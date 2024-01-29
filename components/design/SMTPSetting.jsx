@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import EnhancedText from "../../ui-custom/EnhancedText";
-import CustomInput from "../../ui-custom/CustomInput";
-import CustomButton from "../../ui-custom/CustomButton";
+import EnhancedText from "../ui-custom/EnhancedText";
+import CustomInput from "../ui-custom/CustomInput";
+import CustomButton from "../ui-custom/CustomButton";
 import { ListRestart, SendHorizonal } from "lucide-react";
 
 export default function SMTPSetting() {

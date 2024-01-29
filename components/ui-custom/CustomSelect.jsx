@@ -38,8 +38,8 @@ const CustomSelect = ({ options, value, onChange, bg, ph, icon, label, w }) => {
           <span
             className={
               bg == "blue"
-                ? "bg-blue-900 text-wh text-sm font-semibold px-0.25 h-full rounded-md py-0.125"
-                : " border border-slate-400 text-black text-sm font-semibold px-0.25  rounded-md py-0.125 h-full"
+                ? "bg-blue-900 flex items-center text-wh text-sm font-semibold px-0.25 h-full rounded-md py-0.125"
+                : " border border-slate-400 flex items-center text-black text-sm font-semibold px-0.25  rounded-md py-0.125 h-full"
             }
           >
             {label}
@@ -53,7 +53,7 @@ const CustomSelect = ({ options, value, onChange, bg, ph, icon, label, w }) => {
       </div>
 
       {isOpen ? (
-        <ul className="absolute w-full z-10 top-full text-black  border  rounded-md shadow max-h-60  overflow-y-scrollbar  bg-white ">
+        <ul className="absolute w-full z-50 top-full text-black  border  rounded-md shadow max-h-60  overflow-y-scrollbar  bg-white ">
           {options?.map((option, index) => (
             <li
               key={index}

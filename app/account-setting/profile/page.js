@@ -1,5 +1,5 @@
-import AddUserRole from "@/components/page-partials/design/AddUserRole";
-import Profile from "@/components/page-partials/profile/Profile";
+ 
+import Profile from "@/components/profile/Profile";
 import React from "react";
 
 export default function page() {

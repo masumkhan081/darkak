@@ -9,7 +9,7 @@ import {
   ListChecks,
   RefreshCwOff,
 } from "lucide-react";
-import TblPermission from "../../tabular-view/TblPermission";
+import TblPermission from "../tabular-view/TblPermission";
 import CustomInput from "@/components/ui-custom/CustomInput";
 import CustomButton from "@/components/ui-custom/CustomButton";
 import EnhancedText from "@/components/ui-custom/EnhancedText";

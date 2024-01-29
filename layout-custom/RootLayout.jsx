@@ -4,7 +4,7 @@ import { Provider, useDispatch, useSelector } from "react-redux";
 import store from "../redux/store";
 import SideNav from "../components/nav/SideNav";
 import TopNav from "../components/nav/TopNav";
-import Footer from "../components/page-partials/other/Footer";
+import Footer from "../components/other/Footer";
 import { usePathname } from "next/navigation";
 import ProtectedRoute from "@/components/route/ProtectedRoute";
 //

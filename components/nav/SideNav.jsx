@@ -60,7 +60,7 @@ export default function SideNav() {
                     })
                   )
                 }
-                className=" shadow-sm text-blck font-serif font-semibold w-full flex gap-3 justify-between items-center hover:bg-tl2 rounded-md border border-tl1 px-2 py-0.25"
+                className=" text-blck font-inter font-semibold w-full flex gap-3 justify-between items-center hover:bg-tl2 rounded-md border border-tl1 px-2 py-0.25"
               >
                 {navItem.icon}
                 {!isSideNavFolded && (
@@ -79,7 +79,7 @@ export default function SideNav() {
 
               {navItem.sub && (
                 <ul
-                  className={`bg-tl1 rounded px-1 py-3 space-y-2 w-full  ${expansionStatus(
+                  className={`bg-tl-2 rounded px-1 py-3 space-y-2 w-full  ${expansionStatus(
                     navItem.label
                   )}`}
                 >
@@ -88,7 +88,7 @@ export default function SideNav() {
                       <li key={item.id}>
                         <Link
                           href={item.to}
-                          className="bg-tl1 border border-tl1 hover:border-tl-3 text-blck font-mono w-full flex gap-2 justify-start items-center rounded-md px-2 py-0.125"
+                          className="bg-pr/400 border hover:border-tl1 border-tl-3 text-slate-100 font-mono w-full flex gap-2 justify-start items-center rounded-md px-2 py-0.125"
                         >
                           {item.icon}
                           {!isSideNavFolded && (

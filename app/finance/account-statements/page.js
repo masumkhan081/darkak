@@ -1,4 +1,4 @@
-import Products from "@/components/page-partials/product/Products";
+import Products from "@/components/product/Products";
 import React from "react";
 
 export default function page() {

@@ -3,7 +3,7 @@ import CustomButton from "@/components/ui-custom/CustomButton";
 import CustomInput from "@/components/ui-custom/CustomInput";
 import CustomSelect from "@/components/ui-custom/CustomSelect";
 import EnhancedText from "@/components/ui-custom/EnhancedText";
-import productGroups from "../../../static-data/product-groups";
+import productGroups from "../../static-data/product-groups";
 import React, { useState } from "react";
 import { Check, Image, Layers2, Plus, Search, X } from "lucide-react";
 import SearchWithSelect from "@/components/ui-custom/SearchWithSelect";

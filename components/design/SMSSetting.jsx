@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import EnhancedText from "../../ui-custom/EnhancedText";
-import CustomButton from "../../ui-custom/CustomButton";
-import CustomSelect from "../../ui-custom/CustomSelect";
-import CustomInput from "../../ui-custom/CustomInput";
+import EnhancedText from "../ui-custom/EnhancedText";
+import CustomButton from "../ui-custom/CustomButton";
+import CustomSelect from "../ui-custom/CustomSelect";
+import CustomInput from "../ui-custom/CustomInput";
 import { Contact, ListRestart, ListTodo, SendHorizonal } from "lucide-react";
 
 export default function SMSSetting() {

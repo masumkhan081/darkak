@@ -50,7 +50,7 @@ export default function TopNav() {
   return (
     <div
       style={{ position: "-webkit-sticky", position: "sticky", top: 0 }}
-      className={` ${getRightSideWidth()} bg-tl-1  rounded-b-sm flex justify-between items-center  px-1.0 py-1    `}
+      className={` ${getRightSideWidth()} bg-tl-1 rounded-b-sm flex justify-between items-center h-3.0 px-1.0 py-1    `}
     >
       <div className="flex flex-col gap-1 items-start">
         <CustomButton
@@ -76,11 +76,11 @@ export default function TopNav() {
               setProfileModal({ isProfileModalOpen: !isProfileModalOpen })
             )
           }
-          startIcon={<UserCog className="w-5 h-6 text-leanin-1 " />}
-          style=" py-0.12 px-0.5 rounded-full shadow-sm border border-tan-1"
+          startIcon={<UserCog className="w-5 h-6 text-pr/600 " />}
+          style=" py-0.12 px-0.5 rounded-full shadow-sm border border-tl-2"
         />
         <div
-          className={isProfileModalOpen ? "nav_drop_down" : `hidden`}
+          className={isProfileModalOpen ? "profile_drop_down" : `hidden`}
           ref={dropdownRef}
         >
           <ModalBodyProfile

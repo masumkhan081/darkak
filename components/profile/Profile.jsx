@@ -2,19 +2,14 @@
 import CustomButton from "@/components/ui-custom/CustomButton";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  setCurrentSubTab,
-  setCurrentTab,
-  setTab,
-} from "@/redux/slices/Profile";
-import { tabMap } from "@/static-data/tabs-profile-page";
+import { setCurrentSubTab, setCurrentTab } from "@/redux/slices/Profile";
+import { tabsProfile } from "@/static-data/tabs-page";
 import EnhancedText from "@/components/ui-custom/EnhancedText";
 import CustomInput from "@/components/ui-custom/CustomInput";
 import SellerAccount from "./SellerAccount";
 import BusinessInfo from "./BusinessInfo";
 import PaymentAcc from "./PaymentAcc";
 import WarehouseAdd from "./WarehouseAdd";
-import ReturnAdd from "./ReturnAdd";
 
 export default function Profile() {
   const dispatch = useDispatch();
@@ -41,10 +36,10 @@ export default function Profile() {
     <div
       className={` ${getRightSideWidth()} h-full flex flex-col gap-1.5 p-0.75 overflow-y-scroll  `}
     >
-      {/* <span>{JSON.stringify(tabMap[currentTab])}</span> */}
+      {/* <span>{JSON.stringify(tabsProfile[currentTab])}</span> */}
       <div className="shadow rounded bg-tl-1">
         <div className="flex gap-2  shadow rounded p-0.5 font-sans ">
-          {Object.keys(tabMap).map((tab, ind) => {
+          {Object.keys(tabsProfile).map((tab, ind) => {
             return (
               <CustomButton
                 key={ind}
@@ -58,7 +53,7 @@ export default function Profile() {
           })}
         </div>
         <div className="flex py-0.38 gap-2 justify-center px-0.5 shadow bg-pantone1 rounded-md">
-          {tabMap[currentTab].map((tab, ind) => {
+          {tabsProfile[currentTab].map((tab, ind) => {
             return (
               <CustomButton
                 key={ind}
@@ -80,8 +75,7 @@ export default function Profile() {
         {currentSubTab == "Seller Account" && <SellerAccount />}
         {currentSubTab == "Business Information" && <BusinessInfo />}
         {currentSubTab == "Payment Account" && <PaymentAcc />}
-        {currentSubTab == "Warehouse Address" && <WarehouseAdd />}
-        {currentSubTab == "Return Address" && <ReturnAdd />}
+        {currentSubTab == "Warehouse & Return Address" && <WarehouseAdd />}
       </div>
     </div>
   );

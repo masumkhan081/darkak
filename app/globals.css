@@ -47,13 +47,13 @@
 }
 
 .txt_span6 {
-  @apply col-span-6  h-full py-0.38 lg:text-base text-lg bg-deep-3 px-2 outline-none rounded border border-tl-1 focus:border-tl-2;
+  @apply col-span-6 text-center h-full py-0.38 lg:text-base text-lg bg-deep-3 px-2 outline-none rounded border focus:border-tl-2;
 }
 .div_span12_fieldgroup {
-  @apply grid grid-cols-12  gap-2 h-[4vh] items-center rounded-md;
+  @apply grid grid-cols-12  gap-2 h-[6vh] items-center rounded-md;
 }
 .lbl_span3 {
-  @apply col-span-3 flex items-center ps-2 rounded border border-tl-2 h-full;
+  @apply col-span-4 flex items-center font-sans ps-2 rounded border border-tl-2 h-full;
 }
 .err_span3 {
   @apply col-span-3 flex items-center ps-2 text-red-700 h-full;
@@ -96,6 +96,9 @@
 }
 .brdb {
   @apply border border-black;
+}
+.profile_drop_down {
+  @apply block absolute z-20 top-2.5  right-[20px] border rounded-md bg-tl-1 border-pr/400;
 }
 .nav_drop_down {
   @apply block absolute z-10 top-[50%] left-[50%]    border rounded-md bg-green-200 border-yellow-600;

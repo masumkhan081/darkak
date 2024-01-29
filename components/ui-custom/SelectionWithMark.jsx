@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
-const DropDown = ({
+export default function SelectionWithMark({
   options,
   value,
   onChange,
@@ -11,8 +11,8 @@ const DropDown = ({
   ph,
   icon,
   label,
-  rounded,
-}) => {
+  w,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const handleClickOutside = (e) => {
@@ -32,36 +32,39 @@ const DropDown = ({
     setIsOpen(!isOpen);
   };
 
+  const mark = () => value?.title?"border border-tl-2":"border border-slate-300"
+
   const styles = {
-    light: "bg-slate-100 text-blue-700  ",
+    light: "bg-slate-200 text-black border border-slate-400",
     blue: "bg-blue-700 text-white",
   };
 
   return (
-    <div
-      className="relative z-10 min-w-[165px] shadow-sm shadow-slate-300 border ${rounded}"
-      ref={dropdownRef}
-    >
+    <div className="relative w-full h-full" ref={dropdownRef}>
       <div
-        className={`  px-1.0 font-inter text-0.9/1  capitalize  text-pr/600 flex gap-2 justify-between items-center ${styles[bg]}`}
+        className={`py-1 px-0.25 ${w} h-full ${mark()} rounded-md capitalize cursor-pointer flex justify-between items-center ${styles[bg]}`}
         onClick={toggleDropdown}
-      > {label && (
+      >
+        {label && (
           <span
             className={
               bg == "blue"
-                ? "bg-blue-900 text-wh text-sm font-semibold px-0.5 h-full rounded-md py-0.125"
-                : "bg-slate-300 text-black text-sm font-semibold px-0.5  rounded-md py-0.125 h-full"
+                ? "bg-blue-900 flex items-center text-wh text-sm font-semibold px-0.25 h-full rounded-md py-0.125"
+                : " border border-slate-400 flex items-center text-black text-sm font-semibold px-0.25  rounded-md py-0.125 h-full"
             }
           >
             {label}
           </span>
         )}
-        <span>{value?.title ? value.title : ph}</span>
-        <ChevronDown className="w-3 h-3" />
+        {icon && icon}
+        <span className="flex-grow px-2">
+          {value?.title ? value.title : ph}
+        </span>
+        <ChevronDown className="w-[1.2rem] h-[1.2rem] ms-1" />
       </div>
 
       {isOpen ? (
-        <ul className="absolute w-full z-10 top-full text-black  border  rounded-md shadow   overflow-y-auto scrollbar bg-white max-h-60">
+        <ul className="absolute w-full z-50 top-full text-black  border  rounded-md shadow max-h-60  overflow-y-scrollbar  bg-white ">
           {options?.map((option, index) => (
             <li
               key={index}
@@ -80,6 +83,4 @@ const DropDown = ({
       ) : null}
     </div>
   );
-};
-
-export default DropDown;
+}
