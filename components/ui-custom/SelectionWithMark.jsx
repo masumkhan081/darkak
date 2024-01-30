@@ -49,15 +49,15 @@ export default function SelectionWithMark({
           <span
             className={
               bg == "blue"
-                ? "bg-blue-900 flex items-center text-wh text-sm font-semibold px-0.25 h-full rounded-md py-0.125"
-                : " border border-slate-400 flex items-center text-black text-sm font-semibold px-0.25  rounded-md py-0.125 h-full"
+                ? "bg-blue-900 flex items-center text-wh lg:text-lg md:text-base text-sm font-semibold px-0.25 h-full rounded-md py-0.125"
+                : " border border-slate-400 flex items-center text-black lg:text-lg md:text-base text-sm font-semibold px-0.25  rounded-md py-0.125 h-full"
             }
           >
             {label}
           </span>
         )}
         {icon && icon}
-        <span className="flex-grow px-2">
+        <span className="flex-grow px-2 lg:text-lg md:text-base text-sm">
           {value?.title ? value.title : ph}
         </span>
         <ChevronDown className="w-[1.2rem] h-[1.2rem] ms-1" />
@@ -70,7 +70,7 @@ export default function SelectionWithMark({
               key={index}
               className={`${
                 value === option ? "bg-primary" : "bg-white text-black"
-              } capitalize py-1 px-4 cursor-pointer   hover:bg-blue-800 hover:text-white`}
+              } capitalize py-1 px-4 cursor-pointer lg:text-lg md:text-base text-sm  hover:bg-blue-800 hover:text-white`}
               onClick={() => {
                 onChange(option);
                 setIsOpen(false);

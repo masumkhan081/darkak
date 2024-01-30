@@ -49,8 +49,8 @@ const DropDown = ({
           <span
             className={
               bg == "blue"
-                ? "bg-blue-900 text-wh text-sm font-semibold px-0.5 h-full rounded-md py-0.125"
-                : "bg-slate-300 text-black text-sm font-semibold px-0.5  rounded-md py-0.125 h-full"
+                ? "bg-blue-900 text-wh   font-semibold px-0.5 h-full lg:text-lg md:text-base text-sm rounded-md py-0.125"
+                : "bg-slate-300 text-black  font-semibold px-0.5 lg:text-lg md:text-base text-sm  rounded-md py-0.125 h-full"
             }
           >
             {label}

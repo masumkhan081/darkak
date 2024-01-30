@@ -46,7 +46,7 @@ export default function DropDDashboard ({ options, value, onChange, bg, ph, icon
               key={index}
               className={`${
                 value === option ? "bg-primary" : "bg-white text-black"
-              } capitalize py-1 px-4 cursor-pointer   hover:bg-blue-800 hover:text-white`}
+              } capitalize py-1 px-4 cursor-pointer  lg:text-lg md:text-base text-sm hover:bg-blue-800 hover:text-white`}
               onClick={() => {
                 onChange(option);
                 setIsOpen(false);

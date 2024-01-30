@@ -72,7 +72,7 @@ export default function BusinessInfo() {
       </div>
       <div className="div_span12_fieldgroup">
         <span className="lbl_span3 ">City/Town</span>
-        <div className="col-span-6 h-full">
+        <div className="md:col-span-6 col-span-12 h-full w-full">
           <SelectionWithMark
             value={selectedCity}
             options={cities}
@@ -84,7 +84,7 @@ export default function BusinessInfo() {
 
       <div className="div_span12_fieldgroup">
         <span className="lbl_span3 ">Country</span>
-        <div className="col-span-6 h-full">
+        <div className="md:col-span-6 col-span-12 h-full w-full">
           <SelectionWithMark
             value={selectedCountry}
             options={countries}
@@ -122,7 +122,7 @@ export default function BusinessInfo() {
       </div>
       <div className="div_span12_fieldgroup">
         <span className="lbl_span3">ID Type</span>
-        <div className="col-span-6 h-full   ">
+        <div className="md:col-span-6 col-span-12 h-full w-full">
           <SelectionWithMark
             value={selectedIdType}
             options={idTypes}
@@ -161,7 +161,7 @@ export default function BusinessInfo() {
 
       <div className="div_span12_fieldgroup  ">
         <span className="lbl_span3">Division</span>
-        <div className="col-span-6 h-full   ">
+        <div className="md:col-span-6 col-span-12 h-full w-full">
           <SelectionWithMark
             value={selectedDivision}
             options={divisions}
@@ -174,7 +174,7 @@ export default function BusinessInfo() {
       </div>
       <div className="div_span12_fieldgroup">
         <span className="lbl_span3 ">City</span>
-        <div className="col-span-6 h-full">
+        <div className="md:col-span-6 col-span-12 h-full w-full">
           <SelectionWithMark
             value={selectedNIDCity}
             options={citiesByDivision[selectedDivision.title]}
@@ -187,7 +187,7 @@ export default function BusinessInfo() {
       </div>
       <div className="div_span12_fieldgroup">
         <span className="lbl_span3">Postcode</span>
-        <div className="col-span-6 h-full">
+        <div className="md:col-span-6 col-span-12 h-full w-full">
           <SelectionWithMark
             value={selectedPostCode}
             options={postCodes[selectedNIDCity.title]}
