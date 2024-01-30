@@ -22,7 +22,7 @@ export default function SideNav() {
     isSideNavVisible
       ? isSideNavFolded
         ? "  w-[5vw] min-w-[35px]"
-        : "  md:w-[20vw] w-[5vw] min-w-[35px] "
+        : "  md:w-[20vw] w-[5vw] min-w-[35px]  "
       : "hidden";
 
   const visibilityControl = () => (isSideNavVisible ? "block   " : "hidden");
@@ -35,7 +35,10 @@ export default function SideNav() {
   const adjustTop = () => "top-[100px]";
 
   const getSubItemWidth = () =>
-    isSideNavFolded ? "w-[20px] " : "md:w-full w-[20px]";
+    isSideNavFolded ? "w-[30px] " : "md:w-full w-[30px]";
+
+  const getSubLblWidth = () =>
+    isSideNavFolded ? " hidden " : "flex-grow text-start md:block hidden";
 
   return (
     <div className={` ${getSideNavWidth()} bg-tl-1 h-[100vh] `}>
@@ -48,7 +51,7 @@ export default function SideNav() {
         </span>
       </div>
 
-      <ul className="flex-grow overflow-x-auto h-[84vh] bg-tl-1 bg-opacity-80 px-1 py-1.0 flex flex-col justify-start gap-4 overflow-y-auto  ">
+      <ul className="flex-grow overflow-x-auto  h-[84vh] bg-tl-1 bg-opacity-80 px-1 py-1.0 flex flex-col justify-start gap-4 overflow-y-auto  ">
         {sidenav.map((navItem) => {
           return (
             <li
@@ -88,20 +91,25 @@ export default function SideNav() {
 
               {navItem.sub && (
                 <ul
-                  className={`bg-tl-2 rounded md:px-1 ps-1 py-3 flex flex-col gap-2 justify-center items-center w-full  ${expansionStatus(
+                  className={`bg-tl-2 rounded md:px-1 ps-1 py-3 flex flex-col gap-2 justify-center items-start md:w-full w-[35px]  ${expansionStatus(
                     navItem.label
                   )}`}
                 >
                   {navItem.childs.map((item) => {
                     return (
-                      <li className={` ${getSubItemWidth()} flex justify-start`} key={item.id}>
+                      <li
+                        className={` ${getSubItemWidth()} flex justify-start`}
+                        key={item.id}
+                      >
                         <Link
                           href={item.to}
-                          className="md:bg-pr/400 md:border hover:border-tl1 border-tl-3 text-slate-100 font-mono w-full flex md:gap-2 justify-start items-center rounded-md md:px-2 px-0 py-0.125"
+                          className="md:bg-pr/400 md:border hover:border-tl1 border-tl-3 text-slate-100 font-mono w-full flex md:gap-1 justify-start items-center rounded-md md:px-1 px-0 py-0.125"
                         >
-                          <span className="min-w-[15px] min-h-[15px] ">{item.icon}</span>
+                          <span className="min-w-[15px] min-h-[15px] ">
+                            {item.icon}
+                          </span>
                           {!isSideNavFolded && (
-                            <span className="flex-grow text-start md:block hidden">
+                            <span className={`${getSubLblWidth()}`}>
                               {item.label}
                             </span>
                           )}
