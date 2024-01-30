@@ -39,7 +39,7 @@ const DropDown = ({
 
   return (
     <div
-      className="relative z-1 min-w-[165px] shadow-sm shadow-slate-300 border ${rounded}"
+      className="z-10 relative min-w-[165px] h-full shadow-sm shadow-slate-300 border ${rounded}"
       ref={dropdownRef}
     >
       <div
@@ -61,7 +61,7 @@ const DropDown = ({
       </div>
 
       {isOpen ? (
-        <ul className="absolute w-full z-10 top-full text-black  border  rounded-md shadow   overflow-y-auto scrollbar bg-white max-h-60">
+        <ul className="absolute w-full z-50 top-full text-black  border  rounded-md shadow   overflow-y-auto scrollbar bg-white max-h-60">
           {options?.map((option, index) => (
             <li
               key={index}

@@ -88,7 +88,7 @@ export default function Products({ actOn, useForEdit }) {
   //
   return (
     <div
-      className={` ${getRightSideWidth()} p-1.0 bg-wh flex flex-col h-full gap-1.5  overflow-y-scroll  `}
+      className={` ${getRightSideWidth()} p-1.0 bg-wh flex flex-col h-full gap-1.5  overflow-y-auto  `}
     >
       {/* start --  products and stock */}
       <div className="border border-slate-300 rounded-md flex flex-col gap-1.5 ">

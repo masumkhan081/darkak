@@ -29,7 +29,7 @@ export default function Profile() {
     isSideNavVisible
       ? isSideNavFolded
         ? "w-[95vw] "
-        : "w-[80vw]"
+        : "md:w-[80vw] w-[95vw]"
       : "w-[100vw]";
 
   return (
@@ -37,8 +37,8 @@ export default function Profile() {
       className={` ${getRightSideWidth()} h-full flex flex-col gap-1.5 p-0.75 overflow-y-scroll  `}
     >
       {/* <span>{JSON.stringify(tabsProfile[currentTab])}</span> */}
-      <div className="shadow rounded bg-tl-1">
-        <div className="flex gap-2  shadow rounded p-0.5 font-sans ">
+      <div className="shadow rounded bg-tl-1    ">
+        <div className="flex gap-2  shadow rounded p-0.5 font-sans overflow-x-auto">
           {Object.keys(tabsProfile).map((tab, ind) => {
             return (
               <CustomButton
@@ -52,7 +52,7 @@ export default function Profile() {
             );
           })}
         </div>
-        <div className="flex py-0.38 gap-2 justify-center px-0.5 shadow bg-pantone1 rounded-md">
+        {tabsProfile[currentTab]?.length>0 && <div className="flex py-0.38 gap-2 justify-center px-0.5 shadow bg-pantone1 rounded-md overflow-x-auto">
           {tabsProfile[currentTab].map((tab, ind) => {
             return (
               <CustomButton
@@ -67,7 +67,7 @@ export default function Profile() {
               />
             );
           })}
-        </div>
+        </div>}
       </div>
 
       <div className="flex flex-col gap-1.0  p-1.5  bg-deep-3 rounded-md  ">

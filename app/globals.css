@@ -103,8 +103,8 @@
   @apply border border-black;
 }
 .profile_drop_down {
-  @apply block absolute z-20 top-2.5  right-[20px] border rounded-md bg-tl-1 border-pr/400;
+  @apply block absolute z-30 top-2.5  right-[20px] border rounded-md bg-wh border-pr/400;
 }
 .nav_drop_down {
-  @apply block absolute z-10 top-[50%] left-[50%]    border rounded-md bg-green-200 border-yellow-600;
+  @apply block absolute z-50 top-[50%] left-[50%]    border rounded-md bg-green-200 border-yellow-600;
 }

@@ -29,9 +29,9 @@ export default function DropDDashboard ({ options, value, onChange, bg, ph, icon
   };
 
   return (
-    <div className="relative w-fit h-full" ref={dropdownRef}>
+    <div className="relative z-0 w-fit h-full" ref={dropdownRef}>
       <div
-        className={`py-1 px-0.25  w-fit h-full  rounded-md capitalize cursor-pointer flex justify-between items-center ${styles[bg]}`}
+        className={`py-1 px-0.25 z-0 w-fit h-full  rounded-md capitalize cursor-pointer flex justify-between items-center ${styles[bg]}`}
         onClick={toggleDropdown}
       >
         {icon && icon}
@@ -40,7 +40,7 @@ export default function DropDDashboard ({ options, value, onChange, bg, ph, icon
       </div>
 
       {isOpen ? (
-        <ul className="absolute min-w-[150px] z-10 top-full text-black  border  rounded-md shadow max-h-60  overflow-y-scrollbar  bg-white ">
+        <ul className="absolute min-w-[150px] z-10 right-0 top-full text-black  border  rounded-md shadow max-h-60  overflow-y-scrollbar  bg-white ">
           {options?.map((option, index) => (
             <li
               key={index}

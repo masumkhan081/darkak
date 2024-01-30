@@ -21,13 +21,14 @@ export default function SideNav() {
   const getSideNavWidth = () =>
     isSideNavVisible
       ? isSideNavFolded
-        ? "  w-[5vw] "
-        : "  w-[20vw]"
+        ? "  w-[5vw] min-w-[35px]"
+        : "  md:w-[20vw] w-[5vw] min-w-[35px] "
       : "hidden";
 
   const visibilityControl = () => (isSideNavVisible ? "block   " : "hidden");
 
-  const widthControlBrand = () => (isSideNavFolded ? "text-xs  " : "text-xl");
+  const widthControlBrand = () =>
+    isSideNavFolded ? "invisible " : "md:text-xl sm:text-sm invisible";
   const expansionStatus = (key) => (expansion[key] ? " block" : " hidden");
 
   const [topSpace, setTopSpace] = useState(0);
@@ -35,7 +36,7 @@ export default function SideNav() {
 
   return (
     <div className={` ${getSideNavWidth()} bg-tl-1 h-[100vh] `}>
-      <div className="  py-0.125 sm:flex hidden  rounded-sm  w-full  justify-center items-center h-[10vh] ">
+      <div className="  py-0.125 flex   rounded-sm  w-full  justify-center items-center h-[10vh] ">
         {/* <Image src={brand} className="w-7.0 h-4.0  overflow-hidden" /> */}
         <span
           className={` ${widthControlBrand()} font-semibold font-mono drop-shadow-md`}
@@ -44,10 +45,13 @@ export default function SideNav() {
         </span>
       </div>
 
-      <ul className="flex-grow h-[84vh] bg-tl-1 bg-opacity-80 px-1 py-1.0 flex flex-col justify-start gap-4 overflow-y-scroll overflow-x-hidden">
+      <ul className="flex-grow overflow-x-auto h-[84vh] bg-tl-1 bg-opacity-80 px-1 py-1.0 flex flex-col justify-start gap-4 overflow-y-auto  ">
         {sidenav.map((navItem) => {
           return (
-            <li className="flex flex-col w-full  " key={navItem.id}>
+            <li
+              className="flex flex-col md:min-w-[200px] w-full "
+              key={navItem.id}
+            >
               <Link
                 // txt={navItem.label}
                 href={navItem.sub ? "" : navItem.to}
@@ -60,18 +64,20 @@ export default function SideNav() {
                     })
                   )
                 }
-                className=" text-blck font-inter font-semibold w-full flex gap-3 justify-between items-center hover:bg-tl2 rounded-md border border-tl1 px-2 py-0.25"
+                className=" text-blck font-inter font-semibold w-full flex gap-3 justify-between items-center hover:bg-tl2 rounded-md  px-2 py-0.25"
               >
                 {navItem.icon}
                 {!isSideNavFolded && (
-                  <span className="flex-grow text-start">{navItem.label}</span>
+                  <span className="flex-grow text-start md:block hidden">
+                    {navItem.label}
+                  </span>
                 )}
                 {!isSideNavFolded && navItem.sub && (
                   <ChevronRight
                     className={
                       expansion[navItem.label]
-                        ? "rotate-90 w-5 h-5 text-slate-950"
-                        : "rotate-0 text-sl/500  w-5 h-5"
+                        ? "rotate-90 w-5 h-5 text-slate-950 md:block hidden"
+                        : "rotate-0 text-sl/500  w-5 h-5 md:block hidden"
                     }
                   />
                 )}
@@ -79,7 +85,7 @@ export default function SideNav() {
 
               {navItem.sub && (
                 <ul
-                  className={`bg-tl-2 rounded px-1 py-3 space-y-2 w-full  ${expansionStatus(
+                  className={`bg-tl-2 rounded md:px-1 ps-1 py-3 flex-flex-col gap-2 justify-center items-center w-full  ${expansionStatus(
                     navItem.label
                   )}`}
                 >
@@ -88,11 +94,15 @@ export default function SideNav() {
                       <li key={item.id}>
                         <Link
                           href={item.to}
-                          className="bg-pr/400 border hover:border-tl1 border-tl-3 text-slate-100 font-mono w-full flex gap-2 justify-start items-center rounded-md px-2 py-0.125"
+                          className="md:bg-pr/400 md:border hover:border-tl1 border-tl-3 text-slate-100 font-mono w-full flex md:gap-2 justify-start items-center rounded-md md:px-2 px-0 py-0.125"
                         >
-                          {item.icon}
+                          <span className="md:flex-shrink flex-grow">
+                            {item.icon}
+                          </span>
                           {!isSideNavFolded && (
-                            <span className="flex-grow ">{item.label}</span>
+                            <span className="md:flex-grow md:block hidden">
+                              {item.label}
+                            </span>
                           )}
                         </Link>
                       </li>
@@ -105,7 +115,7 @@ export default function SideNav() {
         })}
       </ul>
 
-      <div className=" rounded mx-2 h-[5vh] flex flex-col justify-center ">
+      <div className="  rounded mx-2 h-[5vh] flex flex-col justify-center ">
         <CustomButton
           endIcon={
             <ChevronRight
@@ -119,7 +129,7 @@ export default function SideNav() {
               setSideNavFoldability({ isSideNavFolded: !isSideNavFolded })
             )
           }
-          style="  flex items-center hover:text-pr/600  border border-tl2  rounded  w-full sm:flex hidden justify-center"
+          style="  flex items-center hover:text-pr/600  border border-tl2  rounded  w-full md:flex hidden justify-center"
         />
       </div>
     </div>

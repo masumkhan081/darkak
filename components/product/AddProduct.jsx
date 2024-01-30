@@ -95,13 +95,13 @@ export default function AddProduct({ actOn, useForEdit }) {
     isSideNavVisible
       ? isSideNavFolded
         ? "w-[95vw] "
-        : "w-[80vw]"
+        : "md:w-[80vw] w-[95vw]"
       : "w-[100vw]";
 
   //
   return (
     <div
-      className={` ${getRightSideWidth()} p-1.0 bg-wh flex flex-col h-full gap-1.5  overflow-y-scroll  `}
+      className={` ${getRightSideWidth()} p-1.0 bg-wh flex flex-col h-full gap-1.5  overflow-y-auto  `}
     >
       {/* start ---- product basic info */}
       <div className="border border-slate-300 rounded-md ">
@@ -113,42 +113,46 @@ export default function AddProduct({ actOn, useForEdit }) {
         </EnhancedText>
 
         <div className="flex flex-col gap-1.0 px-1.0 py-1.5  ">
-          <div className="grid grid-cols-2 md:gap-1.0 gap-0.5">
-            <div className="col-span-1 flex flex-col gap-1 ">
+          {/*  */}
+          <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 md:items-end  md:gap-1.0 gap-0.5">
+            <div className="sm:col-span-2 col-span-1 flex flex-col gap-1 ">
               <span className="text-pr/600">
                 Product Name<span className="mx-1 text-red-600">*</span>
               </span>
               <CustomInput ph="Enter product name" />
             </div>
 
-            <div className="flex flex-col gap-1 px-1">
+            <div className="col-span-1   flex flex-col md:justify-start justify-between gap-1 px-1 z-10">
               <span className="text-pr/600">
                 Select<span className="mx-1 text-red-600">*</span>
               </span>
-              <div className=" relative flex gap-3 justify-start items-center  ">
-                <DropDown
-                  onChange={(selected) => {
-                    setCat(selected);
-                  }}
-                  value={selectedCat}
-                  options={categories}
-                  ph={"category"}
-                />
-                <ChevronsRight className=" rounded-full p-0.12 w-5 h-5" />
-                <DropDown
-                  onChange={(selected) => {
-                    setSubCat(selected);
-                  }}
-                  value={selectedSubCat}
-                  options={subCategories}
-                  ph={"sub-category"}
-                />
-              </div>
+
+              <DropDown
+                onChange={(selected) => {
+                  setCat(selected);
+                }}
+                value={selectedCat}
+                options={categories}
+                ph={"Category"}
+              />
+            </div>
+            <div className="col-span-1   flex flex-col md:justify-start justify-between gap-1 px-1 z-10">
+              <span className="text-pr/600">
+                Select<span className="mx-1 text-red-600">*</span>
+              </span>
+              <DropDown
+                onChange={(selected) => {
+                  setSubCat(selected);
+                }}
+                value={selectedSubCat}
+                options={subCategories}
+                ph={"Sub category"}
+              />
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:gap-1.0 gap-0.5">
-            <div className="col-span-1 flex flex-col gap-1  ">
+          <div className="grid md:grid-cols-2 grid-cols-1 md:gap-1.0 gap-0.5">
+            <div className=" col-span-1 flex flex-col gap-1  ">
               <span className="text-pr/600">
                 Select Brand<span className="mx-1 text-red-600">*</span>
               </span>
@@ -162,8 +166,8 @@ export default function AddProduct({ actOn, useForEdit }) {
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 md:gap-1.0 gap-0.5">
-            <div className="flex flex-col gap-1">
+          <div className="grid md:grid-cols-2 grid-cols-1 md:gap-1.0 gap-0.5">
+            <div className="col-span-1 flex flex-col gap-1">
               <label>Description</label>
               <textarea
                 rows={3}
@@ -190,7 +194,7 @@ export default function AddProduct({ actOn, useForEdit }) {
             <p className="font-semibold text-base">
               Product Images <span className="mx-1 text-red-600">*</span>
             </p>
-            <div className="flex   gap-1.0 ">
+            <div className="flex   gap-1.0 overflow-x-auto">
               {Object.keys(images).map((item) => {
                 return (
                   <div className="flex flex-col gap-2 w-5.0 ">
@@ -310,7 +314,7 @@ export default function AddProduct({ actOn, useForEdit }) {
         </div>
       </div>
       {/* start --  variants and stock */}
-      <div className="border border-slate-300 rounded-md flex flex-col gap-1.5 ">
+      <div className="border border-slate-300 rounded-md flex flex-col gap-1.0 ">
         <EnhancedText
           kind={"two"}
           color="text-pr/400 px-0.75 py-0.12 bg-slate-200 rounded-md  "
@@ -318,25 +322,27 @@ export default function AddProduct({ actOn, useForEdit }) {
           Variants And Stock
         </EnhancedText>
 
-        <div className="w-[100%] lg:w-[100%] xl:w-[90%] 2xl:w-[80%] flex flex-col gap-2 py-0.5">
-          <div className="min-w-[380px] flex gap-2 justify-start px-1 font-sans  max-h-[28px]">
-            <div className="w-10.0 font-inter ">
+        <div className="w-[100%] lg:w-[100%] xl:w-[90%] 2xl:w-[80%] flex flex-col gap-2 md:py-0.5 py-0.25">
+          <div className="min-w-[380px] flex md:flex-row flex-col sm:gap-2 gap-1 justify-start px-1 font-sans md:h-[28px] w-auto">
+            <div className="w-10.0  ">
               <CustomInput
-                label={"Quantity"}
-                lblstyle="bg-pr/400 h-full pb-0.12 px-1 text-slate-100 rounded border-r border-slate-300 "
+                ph="Enter Quantity"
+                // label={"Quantity"}
+                // lblstyle="bg-pr/400 h-full pb-0.12 px-1 text-slate-100 rounded border-r border-slate-300 "
               />
             </div>
             <div className="w-10.0 text-sm ">
               <CustomInput
-                label={"Price"}
-                lblstyle="bg-pr/400 h-full pb-0.12 px-1 text-slate-100 rounded border-r border-slate-300 "
+                ph="Enter price"
+                // label={"Price"}
+                // lblstyle="bg-pr/400 h-full pb-0.12 px-1 text-slate-100 rounded border-r border-slate-300 "
               />
             </div>
-            <div className="max-w-8.0">
+            <div className="md:max-w-8.0 w-10.0">
               <CustomButton
                 txt={"Apply To All"}
                 style={
-                  "bg-wh rounded-md h-full border text-pr/600 border-pr/400 text-sm font-inter 0.75/1  px-0.5 py-0.12"
+                  "bg-tl-1 hover:bg-tl-2 rounded h-full w-full border text-pr/600  text-sm font-inter 0.75/1  px-0.5 py-0.12"
                 }
               />
             </div>
@@ -435,7 +441,7 @@ export default function AddProduct({ actOn, useForEdit }) {
         </EnhancedText>
 
         <div className="flex flex-col gap-1.0 px-1.0 py-1.5">
-          <div className="flex gap-1.0 items-center">
+          <div className="flex md:flex-row flex-col md:gap-1.0 gap-0.5 items-center">
             {/* <EnhancedText
               kind={"five"}
               color="font-inter text-0.75/1 font-semibold text-pr/600 uppercase"
@@ -462,18 +468,18 @@ export default function AddProduct({ actOn, useForEdit }) {
           <div className="w-full font-inter ">
             <CustomInput
               label={"Warranty Policy"}
-              lblstyle="bg-slate-200 px-1 py-0.25 text-slate-600   border-r border-slate-400 "
+              lblstyle="bg-slate-200 px-1 py-0.25 text-slate-600  md:text-base text-sm border-r border-slate-400 "
             />
           </div>
         </div>
       </div>
-      <form className="flex flex-col gap-4 text-sm my-4">
+      <div className="flex justify-center gap-4 text-sm my-1.0 ">
         <CustomButton
           startIcon={<CheckCheck className="w-4 h-4 mr-1" />}
           txt={"Submit"}
-          style="flex gap-2 items-center bg-blue-900 text-wh px-0.75 text-sm font-semibold  py-0.25 rounded-md w-fit "
+          style="flex justify-center gap-2 min-w-[200px] items-center bg-pr/600 text-tl-2 hover:text-tl-1 px-0.75 text-sm font-semibold  py-0.38 rounded-md w-fit "
         />
-      </form>
+      </div>
     </div>
   );
 }

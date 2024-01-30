@@ -49,7 +49,7 @@ const sidenav = [
   {
     id: 1,
     label: "Dashboard",
-    icon: <AreaChart className="w-5 h-5" />,
+    icon: <AreaChart className="min-w-[15px] min-h-[15px] w-5 h-5" />,
     sub: false,
     to: "/dashboard",
   },

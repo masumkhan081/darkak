@@ -44,7 +44,7 @@ export default function TopNav() {
     isSideNavVisible
       ? isSideNavFolded
         ? "w-[95vw] "
-        : "w-[80vw]"
+        : "md:w-[80vw] w-[95vw]"
       : "w-[100vw]";
 
   return (
@@ -65,7 +65,7 @@ export default function TopNav() {
         <span className="text-xs">{"Home" + pathname}</span>
       </div>
 
-      <div className="  flex gap-2 items-center font-inter">
+      <div className="z-10  flex gap-2 items-center font-inter">
         <span>
           Hi, <b>UserName!</b>
         </span>
