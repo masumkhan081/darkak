@@ -34,6 +34,9 @@ export default function SideNav() {
   const [topSpace, setTopSpace] = useState(0);
   const adjustTop = () => "top-[100px]";
 
+  const getSubItemWidth = () =>
+    isSideNavFolded ? "w-[20px] " : "md:w-full w-[20px]";
+
   return (
     <div className={` ${getSideNavWidth()} bg-tl-1 h-[100vh] `}>
       <div className="  py-0.125 flex   rounded-sm  w-full  justify-center items-center h-[10vh] ">
@@ -85,22 +88,20 @@ export default function SideNav() {
 
               {navItem.sub && (
                 <ul
-                  className={`bg-tl-2 rounded md:px-1 ps-1 py-3 flex-flex-col gap-2 justify-center items-center w-full  ${expansionStatus(
+                  className={`bg-tl-2 rounded md:px-1 ps-1 py-3 flex flex-col gap-2 justify-center items-center w-full  ${expansionStatus(
                     navItem.label
                   )}`}
                 >
                   {navItem.childs.map((item) => {
                     return (
-                      <li key={item.id}>
+                      <li className={` ${getSubItemWidth()} flex justify-start`} key={item.id}>
                         <Link
                           href={item.to}
                           className="md:bg-pr/400 md:border hover:border-tl1 border-tl-3 text-slate-100 font-mono w-full flex md:gap-2 justify-start items-center rounded-md md:px-2 px-0 py-0.125"
                         >
-                          <span className="md:flex-shrink flex-grow">
-                            {item.icon}
-                          </span>
+                          <span className="min-w-[15px] min-h-[15px] ">{item.icon}</span>
                           {!isSideNavFolded && (
-                            <span className="md:flex-grow md:block hidden">
+                            <span className="flex-grow text-start md:block hidden">
                               {item.label}
                             </span>
                           )}
