@@ -39,7 +39,7 @@ const DropDown = ({
 
   return (
     <div
-      className="relative z-10 min-w-[165px] shadow-sm shadow-slate-300 border ${rounded}"
+      className="relative z-1 min-w-[165px] shadow-sm shadow-slate-300 border ${rounded}"
       ref={dropdownRef}
     >
       <div

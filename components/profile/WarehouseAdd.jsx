@@ -69,7 +69,7 @@ export default function WarehouseAdd() {
         Warehouse Address
       </EnhancedText>
       <div className="div_span12_fieldgroup ">
-        <span className="lbl_span3 md:text-base text-3xl">Full Name</span>
+        <span className="lbl_span3  ">Full Name</span>
         <input
           type="text"
           value={fullName}

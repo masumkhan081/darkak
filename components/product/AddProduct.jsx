@@ -125,7 +125,7 @@ export default function AddProduct({ actOn, useForEdit }) {
               <span className="text-pr/600">
                 Select<span className="mx-1 text-red-600">*</span>
               </span>
-              <div className=" flex gap-3 justify-start items-center  ">
+              <div className=" relative flex gap-3 justify-start items-center  ">
                 <DropDown
                   onChange={(selected) => {
                     setCat(selected);

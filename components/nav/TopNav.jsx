@@ -65,7 +65,7 @@ export default function TopNav() {
         <span className="text-xs">{"Home" + pathname}</span>
       </div>
 
-      <p className="flex gap-2 items-center font-inter">
+      <div className="  flex gap-2 items-center font-inter">
         <span>
           Hi, <b>UserName!</b>
         </span>
@@ -89,7 +89,7 @@ export default function TopNav() {
             }}
           />
         </div>
-      </p>
+      </div>
     </div>
   );
 }

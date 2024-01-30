@@ -135,11 +135,16 @@ export default function BusinessInfo() {
       </div>
       <div className="div_span12_fieldgroup">
         <span className="lbl_span3">National Identity Card No.</span>
-        <input type="text"  value={idCardNumber}
+        <input
+          type="text"
+          value={idCardNumber}
           onChange={(e) => setIdCardNumber(e.target.value)}
           className={
-            idCardNumber ? " txt_span6   border-tl-2  " : " txt_span6 border-tl-1"
-          } />
+            idCardNumber
+              ? " txt_span6   border-tl-2  "
+              : " txt_span6 border-tl-1"
+          }
+        />
       </div>
       <div className="div_span12_fieldgroup">
         <span className="lbl_span3 ">

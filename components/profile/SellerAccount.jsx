@@ -10,7 +10,9 @@ export default function SellerAccount() {
   return (
     <div className="flex flex-col gap-[4vh] px-2 md:text-sm text-xl ">
       <div className="div_span12_fieldgroup ">
-        <span className="lbl_span3 md:text-base text-3xl">Seller ID</span>
+        <span className="lbl_span3  ">
+          Seller ID
+        </span>
         <input
           type="text"
           className={
@@ -21,7 +23,9 @@ export default function SellerAccount() {
         />
       </div>
       <div className="div_span12_fieldgroup ">
-        <span className="lbl_span3 md:text-base text-3xl">Full Name</span>
+        <span className="lbl_span3  ">
+          Full Name
+        </span>
         <input
           type="text"
           value={fullName}
@@ -32,7 +36,9 @@ export default function SellerAccount() {
         />
       </div>
       <div className="div_span12_fieldgroup">
-        <span className="lbl_span3 ">Email address</span>
+        <span className="lbl_span3  ">
+          Email address
+        </span>
         <input
           type="text"
           value={email}
@@ -43,7 +49,9 @@ export default function SellerAccount() {
         />
       </div>
       <div className="div_span12_fieldgroup">
-        <span className="lbl_span3 ">Phone Number</span>
+        <span className="lbl_span3  ">
+          Phone Number
+        </span>
         <input
           type="text"
           value={contact}
@@ -54,7 +62,9 @@ export default function SellerAccount() {
         />
       </div>
       <div className="div_span12_fieldgroup">
-        <span className="lbl_span3">Display /Shop Name</span>
+        <span className="lbl_span3  ">
+          Display /Shop Name
+        </span>
         <input
           type="text"
           value={shopName}

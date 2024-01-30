@@ -17,13 +17,16 @@ export default function PaymentAcc() {
 
   const [selectedPaymentWay, setPaymentWay] = useState({ id: null, title: "" });
   return (
-    <div className="flex flex-col gap-3 px-2 h-full md:text-sm text-xl">
+    <div className="flex flex-col gap-3 px-2 h-full md:text-lg text-sm">
       <div className="flex flex-col gap-2 ">
         <EnhancedText
           kind={"four"}
           color="text-slate-800 py-0.5 border-b border-slate-300 mb-2"
         >
-          Bank Information <span className="ms-2 text-base font-medium font-serif text-tan-4">Primary</span>
+          Bank Information{" "}
+          <span className="ms-2 text-base font-medium font-serif text-tan-4">
+            Primary
+          </span>
         </EnhancedText>
         <div className="grid sm:grid-cols-2 grid-cols-1 gap-1.5">
           <div className="flex flex-col ">
@@ -133,7 +136,7 @@ export default function PaymentAcc() {
       <div className="flex flex-col gap-2 ">
         <EnhancedText
           kind={"four"}
-          color="text-slate-800 py-0.5 border-b border-slate-300 mb-2"
+          color="text-slate-800 py-0.5  border-b border-slate-300 mb-2"
         >
           MFG Information
         </EnhancedText>

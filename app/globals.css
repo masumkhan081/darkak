@@ -46,18 +46,20 @@
     rgb(var(--background-start-rgb));
 }
 
-.txt_span6 {
-  @apply col-span-6 text-center h-full py-0.38 lg:text-base text-lg bg-deep-3 px-2 outline-none rounded border focus:border-tl-2;
-}
-.txt_stl {
-  @apply   text-center h-full py-0.38 lg:text-base text-lg bg-deep-3 px-2 outline-none rounded border focus:border-tl-2;
-}
 .div_span12_fieldgroup {
-  @apply grid grid-cols-12  gap-2 h-[6vh] items-center rounded-md;
+  @apply grid md:grid-cols-12 md:gap-2 gap-1 md:h-[6vh] h-auto items-center rounded-md;
+}
+.txt_span6 {
+  @apply md:col-span-6 col-span-12 text-center h-full py-0.38  lg:text-lg md:text-base text-sm bg-deep-3 px-2 outline-none rounded border focus:border-tl-2;
 }
 .lbl_span3 {
-  @apply col-span-4 flex items-center font-sans ps-2 rounded border border-tl-2 h-full;
+  @apply md:col-span-4 col-span-12 flex items-center font-sans md:ps-2 rounded border md:border-tl-2 h-full lg:text-lg md:text-base text-sm;
 }
+.txt_stl {
+  @apply text-center h-full py-0.38 lg:text-lg md:text-base text-sm bg-deep-3 px-2 outline-none rounded border focus:border-tl-2;
+}
+
+
 .err_span3 {
   @apply col-span-3 flex items-center ps-2 text-red-700 h-full;
 }
